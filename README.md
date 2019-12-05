@@ -70,7 +70,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 ### Advanced Example
 
-Coming soon.
+Coming soon...
 
 ## License
 
