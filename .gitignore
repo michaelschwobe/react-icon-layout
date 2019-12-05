@@ -1,0 +1,39 @@
+# For more about ignoring files, see:
+# https://help.github.com/ignore-files/
+# https://www.gitignore.io/
+
+# Dependencies
+node_modules
+/.pnp
+.pnp.js
+
+# Testing
+coverage
+
+# Production
+dist
+
+# Environments
+.env.local
+.env.test.local
+.env.development.local
+.env.production.local
+
+# Caches
+.cache
+.rts2_cache_cjs
+.rts2_cache_esm
+.rts2_cache_umd
+.rts2_cache_system
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDEs
+.vscode
+*.sublime-*
+
+# Miscellaneous
+.DS_Store

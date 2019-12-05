@@ -1,0 +1,81 @@
+{
+  "name": "react-icon-layout",
+  "description": "React hook for displaying icon-to-text relationships",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": "Michael Schwobe <mschwobe@gmail.com> (http://michaelschwobe.com)",
+  "repository": "https://github.com/michaelschwobe/react-icon-layout",
+  "bugs": "https://github.com/michaelschwobe/react-icon-layout/issues",
+  "homepage": "https://github.com/michaelschwobe/react-icon-layout#readme",
+  "keywords": [
+    "react",
+    "icon",
+    "layout",
+    "settings",
+    "hooks"
+  ],
+  "main": "dist/index.js",
+  "umd:main": "dist/react-icon-layout.umd.production.min.js",
+  "module": "dist/react-icon-layout.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md",
+    "styles.css"
+  ],
+  "scripts": {
+    "clean": "rm -rf .rts2_cache_cjs .rts2_cache_esm .rts2_cache_umd coverage dist example/.cache example/dist yarn-error.log",
+    "lint": "tsdx lint src test",
+    "test": "tsdx test --env=jsdom",
+    "start": "tsdx watch",
+    "build": "tsdx build --format=cjs,esm,umd",
+    "start:example": "cd example && yarn install && yarn start",
+    "build:example": "cd example && yarn install && yarn build"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint src test"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
+  "engines": {
+    "node": ">=13.2.0",
+    "yarn": ">=1.19.2"
+  },
+  "peerDependencies": {
+    "classnames": "^2.2.6",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/react-hooks": "^3.2.1",
+    "@types/classnames": "^2.2.9",
+    "@types/jest": "^24.0.23",
+    "@types/prop-types": "^15.7.3",
+    "@types/react": "^16.9.13",
+    "@types/react-dom": "^16.9.4",
+    "@types/react-test-renderer": "^16.9.1",
+    "@types/testing-library__react": "^9.1.2",
+    "@types/testing-library__react-hooks": "^3.1.0",
+    "babel-loader": "^8.0.6",
+    "classnames": "^2.2.6",
+    "husky": "^3.1.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-test-renderer": "^16.12.0",
+    "tsdx": "^0.11.0",
+    "tslib": "^1.10.0",
+    "typescript": "^3.7.2"
+  }
+}
