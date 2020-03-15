@@ -26,8 +26,8 @@
   ],
   "scripts": {
     "clean": "rm -rf .rts2_cache_cjs .rts2_cache_esm .rts2_cache_umd coverage dist example/.cache example/dist yarn-error.log",
-    "lint": "tsdx lint src test",
-    "test": "tsdx test --env=jsdom",
+    "lint": "tsdx lint .storybook stories src test",
+    "test": "tsdx test",
     "start": "tsdx watch",
     "build": "tsdx build --format=cjs,esm,umd",
     "start:example": "cd example && yarn install && yarn start",
@@ -35,7 +35,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "tsdx lint src test"
+      "pre-commit": "tsdx lint .storybook stories src test"
     }
   },
   "prettier": {
@@ -49,34 +49,35 @@
     "yarn": ">=1.19.2"
   },
   "peerDependencies": {
-    "classnames": "^2.2.6",
-    "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "classnames": ">=2.2",
+    "prop-types": ">=15.7",
+    "react": ">=16.13",
+    "react-dom": ">=16.13"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.4",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
+    "@babel/core": "^7.8.7",
+    "@testing-library/jest-dom": "^5.1.1",
+    "@testing-library/react": "^10.0.1",
     "@testing-library/react-hooks": "^3.2.1",
-    "@types/classnames": "^2.2.9",
-    "@types/jest": "^24.0.23",
+    "@types/classnames": "^2.2.10",
+    "@types/jest": "^25.1.4",
     "@types/prop-types": "^15.7.3",
-    "@types/react": "^16.9.13",
-    "@types/react-dom": "^16.9.4",
-    "@types/react-test-renderer": "^16.9.1",
-    "@types/testing-library__react": "^9.1.2",
-    "@types/testing-library__react-hooks": "^3.1.0",
+    "@types/react": "^16.9.23",
+    "@types/react-dom": "^16.9.5",
+    "@types/react-test-renderer": "^16.9.2",
+    "@types/testing-library__react": "^9.1.3",
+    "@types/testing-library__react-hooks": "^3.2.0",
     "babel-loader": "^8.0.6",
     "classnames": "^2.2.6",
     "cssnano": "^4.1.10",
-    "husky": "^3.1.0",
+    "husky": "^4.2.3",
     "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-test-renderer": "^16.12.0",
-    "tsdx": "^0.11.0",
-    "tslib": "^1.10.0",
-    "typescript": "^3.7.2"
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-test-renderer": "^16.13.0",
+    "ts-loader": "^6.2.1",
+    "tsdx": "^0.12.3",
+    "tslib": "^1.11.1",
+    "typescript": "^3.8.3"
   }
 }
