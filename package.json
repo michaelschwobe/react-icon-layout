@@ -30,8 +30,10 @@
     "test": "tsdx test",
     "start": "tsdx watch",
     "build": "tsdx build --format=cjs,esm,umd",
-    "start:example": "cd example && yarn install && yarn start",
-    "build:example": "cd example && yarn install && yarn build"
+    "example": "cd example && yarn install && yarn start",
+    "build-example": "cd example && yarn install && yarn build",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "husky": {
     "hooks": {
@@ -56,6 +58,11 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.7",
+    "@storybook/addon-actions": "^5.3.17",
+    "@storybook/addon-knobs": "^5.3.17",
+    "@storybook/addon-links": "^5.3.17",
+    "@storybook/addons": "^5.3.17",
+    "@storybook/react": "^5.3.17",
     "@testing-library/jest-dom": "^5.1.1",
     "@testing-library/react": "^10.0.1",
     "@testing-library/react-hooks": "^3.2.1",

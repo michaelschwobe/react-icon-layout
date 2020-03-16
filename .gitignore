@@ -12,6 +12,7 @@ coverage
 
 # Production
 dist
+storybook-static
 
 # Environments
 .env.local

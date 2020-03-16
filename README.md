@@ -86,6 +86,7 @@ ReactDOM.render(<App />, rootElement);
 
 - View “Finder” demo on [CodeSandbox](https://codesandbox.io/s/react-icon-layout-finder-example-dzedn)
 - View “example” folder on [GitHub](https://github.com/michaelschwobe/react-icon-layout/tree/master/example)
+- View “stories” folder on [GitHub](https://github.com/michaelschwobe/react-icon-layout/tree/master/stories)
 
 ## API
 
