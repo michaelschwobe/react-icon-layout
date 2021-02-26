@@ -30,8 +30,8 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "prepare": "tsdx build",
-    "example": "cd example && yarn install && yarn start",
-    "build-example": "cd example && yarn install && yarn build",
+    "example": "cd example && npm install && npm start",
+    "build-example": "cd example && npm install && npm build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "size": "size-limit",
@@ -60,7 +60,8 @@
   ],
   "engines": {
     "node": ">=14",
-    "yarn": "^1.22.10"
+    "npm": ">=7",
+    "yarn": ">=1.22.0 <2"
   },
   "peerDependencies": {
     "classnames": ">=2",

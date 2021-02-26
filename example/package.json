@@ -14,7 +14,8 @@
   },
   "engines": {
     "node": ">=14",
-    "yarn": "^1.22.10"
+    "npm": ">=7",
+    "yarn": ">=1.22.0 <2"
   },
   "dependencies": {
     "react-app-polyfill": "^2.0.0"
