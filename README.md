@@ -2,6 +2,11 @@
 
 React hook for displaying icon-to-text relationships.
 
+[![version](https://img.shields.io/npm/v/react-icon-layout.svg?style=flat-square)](https://www.npmjs.com/package/react-icon-layout)
+[![license](https://img.shields.io/npm/l/react-icon-layout?style=flat-square)](https://github.com/michaelschwobe/react-icon-layout/blob/master/LICENSE)
+[![status](https://img.shields.io/github/workflow/status/michaelschwobe/react-icon-layout/CI?style=flat-square)](https://www.npmjs.com/package/react-icon-layout)
+[![coverage](https://codecov.io/gh/michaelschwobe/react-icon-layout/branch/master/graph/badge.svg?token=NN3EY45TXL)](https://codecov.io/gh/michaelschwobe/react-icon-layout)
+
 <figure>
   <figcaption>You've likely seen this relationship before within the macOS Finder</figcaption>
   <img src="https://github.com/michaelschwobe/react-icon-layout/raw/master/media/Finder.png" width="800" alt="macOS Finder with it’s header right-click menu visible" />
