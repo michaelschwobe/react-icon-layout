@@ -15,7 +15,6 @@
     "hooks"
   ],
   "main": "dist/index.js",
-  "umd:main": "dist/react-icon-layout.umd.production.min.js",
   "module": "dist/react-icon-layout.esm.js",
   "typings": "dist/index.d.ts",
   "files": [
@@ -27,13 +26,16 @@
   "scripts": {
     "clean": "rm -rf .rts2_cache_cjs .rts2_cache_esm .rts2_cache_umd coverage dist example/.cache example/dist yarn-error.log",
     "lint": "tsdx lint .storybook stories src test",
-    "test": "tsdx test",
+    "test": "tsdx test --passWithNoTests",
     "start": "tsdx watch",
-    "build": "tsdx build --format=cjs,esm,umd",
+    "build": "tsdx build",
+    "prepare": "tsdx build",
     "example": "cd example && yarn install && yarn start",
     "build-example": "cd example && yarn install && yarn build",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
   },
   "husky": {
     "hooks": {
@@ -46,45 +48,55 @@
     "singleQuote": true,
     "trailingComma": "all"
   },
+  "size-limit": [
+    {
+      "path": "dist/react-icon-layout.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/react-icon-layout.esm.js",
+      "limit": "10 KB"
+    }
+  ],
   "engines": {
-    "node": ">=13.2.0",
-    "yarn": ">=1.19.2"
+    "node": ">=14",
+    "yarn": "^1.22.10"
   },
   "peerDependencies": {
-    "classnames": ">=2.2",
-    "prop-types": ">=15.7",
-    "react": ">=16.13",
-    "react-dom": ">=16.13"
+    "classnames": ">=2",
+    "prop-types": ">=15",
+    "react": ">=17",
+    "react-dom": ">=17"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.7",
-    "@storybook/addon-actions": "^5.3.17",
-    "@storybook/addon-knobs": "^5.3.17",
-    "@storybook/addon-links": "^5.3.17",
-    "@storybook/addons": "^5.3.17",
-    "@storybook/react": "^5.3.17",
-    "@testing-library/jest-dom": "^5.1.1",
-    "@testing-library/react": "^10.0.1",
-    "@testing-library/react-hooks": "^3.2.1",
-    "@types/classnames": "^2.2.10",
-    "@types/jest": "^25.1.4",
+    "@babel/core": "^7.13.1",
+    "@size-limit/preset-small-lib": "^4.9.2",
+    "@storybook/addon-essentials": "^6.1.20",
+    "@storybook/addon-links": "^6.1.20",
+    "@storybook/addons": "^6.1.20",
+    "@storybook/react": "^6.1.20",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/react-hooks": "^5.0.3",
+    "@types/classnames": "^2.2.11",
+    "@types/jest": "^26.0.20",
     "@types/prop-types": "^15.7.3",
-    "@types/react": "^16.9.23",
-    "@types/react-dom": "^16.9.5",
-    "@types/react-test-renderer": "^16.9.2",
-    "@types/testing-library__react": "^9.1.3",
-    "@types/testing-library__react-hooks": "^3.2.0",
-    "babel-loader": "^8.0.6",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.1",
+    "@types/react-test-renderer": "^17.0.1",
+    "@types/testing-library__react": "^10.2.0",
+    "@types/testing-library__react-hooks": "^4.0.0",
+    "babel-loader": "^8.2.2",
     "classnames": "^2.2.6",
-    "cssnano": "^4.1.10",
-    "husky": "^4.2.3",
+    "husky": "^5.1.1",
     "prop-types": "^15.7.2",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
-    "react-test-renderer": "^16.13.0",
-    "ts-loader": "^6.2.1",
-    "tsdx": "^0.12.3",
-    "tslib": "^1.11.1",
-    "typescript": "^3.8.3"
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-is": "^17.0.1",
+    "react-test-renderer": "^17.0.1",
+    "size-limit": "^4.9.2",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.1.0",
+    "typescript": "^4.2.2"
   }
 }

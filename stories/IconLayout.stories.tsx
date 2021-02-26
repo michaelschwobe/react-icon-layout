@@ -1,102 +1,92 @@
-import React from 'react';
-import { DecoratorFunction } from '@storybook/addons';
-import { select, text, withKnobs } from '@storybook/addon-knobs';
+import * as React from 'react';
+import { Meta, Story } from '@storybook/react';
+
+// Local modules
 import {
+  ConsumerProps,
   IconLayout,
-  IconLayoutProvider,
-  iconLayouts,
-  defaultIconLayoutPosition,
   iconLayoutPositions,
-  useIconLayout,
-  // TODO: Remove when TSDX is updated with new Storybook config.
-  // @ts-ignore - Cannot find module '@'.ts(2307)
-} from '@/';
-import '@/styles.css';
+  IconLayoutProvider,
+} from '../src';
+import '../styles.css';
 
 // -----------------------------------------------------------------------------
-// typings
+// Template
 // -----------------------------------------------------------------------------
 
-interface CSFStory<StoryFnReturnType = unknown> {
-  (): StoryFnReturnType;
-  story?: {
-    name?: string;
-    decorators?: DecoratorFunction<StoryFnReturnType>[];
-    parameters?: { [name: string]: unknown };
-  };
-}
+const Template: Story<ConsumerProps> = args => <IconLayout {...args} />;
 
 // -----------------------------------------------------------------------------
-// default
+// Meta
 // -----------------------------------------------------------------------------
 
-export default {
+const meta: Meta = {
   title: 'IconLayout',
   component: IconLayout,
+  parameters: {
+    controls: { expanded: true },
+  },
+  argTypes: {
+    direction: {
+      control: {
+        type: 'select',
+        options: iconLayoutPositions,
+      },
+    },
+    placement: {
+      control: {
+        type: 'select',
+        options: iconLayoutPositions,
+      },
+    },
+  },
 };
 
+export default meta;
+
 // -----------------------------------------------------------------------------
-// Minimal
+// Default
 // -----------------------------------------------------------------------------
 
-export const Minimal: CSFStory<JSX.Element> = () => (
-  <IconLayout icon="icon" text="text" />
-);
+export const Default = Template.bind({});
 
-Minimal.story = {
-  decorators: [storyFn => <IconLayoutProvider>{storyFn()}</IconLayoutProvider>],
+Default.args = {
+  icon: 'icon',
+  text: 'text',
 };
 
+Default.decorators = [
+  (Story: Story) => (
+    <IconLayoutProvider>
+      <Story />
+    </IconLayoutProvider>
+  ),
+];
+
 // -----------------------------------------------------------------------------
-// Knobs
+// Playground
 // -----------------------------------------------------------------------------
 
-export const Knobs: CSFStory<JSX.Element> = () => (
-  <IconLayout
-    className={text('className', 'example', 'Consumer')}
-    direction={select(
-      'direction',
-      iconLayoutPositions,
-      defaultIconLayoutPosition,
-      'Consumer',
-    )}
-    placement={select(
-      'placement',
-      iconLayoutPositions,
-      defaultIconLayoutPosition,
-      'Consumer',
-    )}
-    icon={text('icon', 'ICON', 'Consumer')}
-    text={text('text', 'Lorem ipsum dolor sit amet', 'Consumer')}
-  />
-);
+export const Playground = Template.bind({});
 
-const Wrapper = ({ children }) => {
-  const [iconLayout, dispatch] = useIconLayout();
-  const layout = select('layout', iconLayouts, iconLayout, 'Provider');
-  React.useEffect(() => {
-    dispatch({ type: layout });
-  }, [dispatch, layout]);
-  return (
-    <div
-      style={{
-        height: '95vmin',
-        padding: '1rem',
-        border: '4px dotted silver',
-      }}
-    >
-      {children}
-    </div>
-  );
+Playground.args = {
+  ...Default.args,
+  icon: 'ICON',
+  text: 'Lorem ipsum dolor sit amet',
 };
 
-Knobs.story = {
-  decorators: [
-    withKnobs,
-    storyFn => (
-      <IconLayoutProvider>
-        <Wrapper>{storyFn()}</Wrapper>
-      </IconLayoutProvider>
-    ),
-  ],
-};
+Playground.decorators = [
+  (Story: Story) => (
+    <IconLayoutProvider>
+      <div
+        style={{
+          height: '95vmin',
+          padding: '1rem',
+          border: '4px dotted silver',
+        }}
+      >
+        <Story />
+      </div>
+    </IconLayoutProvider>
+  ),
+];

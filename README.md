@@ -30,13 +30,13 @@ yarn add react-icon-layout
 ### Basic Example
 
 ```js
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import {
-  IconLayoutProvider,
   IconLayout,
-  useIconLayout,
+  IconLayoutProvider,
   iconLayoutOptions,
+  useIconLayout,
 } from 'react-icon-layout';
 import 'react-icon-layout/styles.css';
 
@@ -94,13 +94,13 @@ ReactDOM.render(<App />, rootElement);
 
 ```js
 import {
-  iconLayouts, // List of context states
+  IconLayout, // Context consumer and display component
+  IconLayoutProvider, // Context provider component
   defaultIconLayout, // Default context state
+  defaultIconLayoutPosition, // Default context consumer prop value
   iconLayoutOptions, // List of context ids and names
   iconLayoutPositions, // List of context consumer prop values
-  defaultIconLayoutPosition, // Default context consumer prop value
-  IconLayoutProvider, // Context provider component
-  IconLayout, // Context consumer and display component
+  iconLayouts, // List of context states
   useIconLayout, // Context consumer hook and updater
 } from 'react-icon-layout';
 import 'react-icon-layout/styles.css'; // Styles for <IconLayout>
