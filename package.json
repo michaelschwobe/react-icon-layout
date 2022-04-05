@@ -35,7 +35,7 @@
     "lint": "eslint . --ext=.js,.jsx,.ts,.tsx --fix",
     "format": "prettier '**/*' --write --ignore-unknown",
     "test": "vitest",
-    "test:coverage": "vitest run --coverage",
+    "test:ci": "vitest run --coverage",
     "dev": "vite",
     "dev:clean": "npm-run-all --sequential dev -- --force",
     "dev:storybook": "start-storybook -p 6006",

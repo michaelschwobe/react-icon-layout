@@ -29,7 +29,7 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'happy-dom',
-    include: ['tests/**/*.test.tsx'],
+    include: ['tests/**/*.test.ts', 'tests/**/*.test.tsx'],
     setupFiles: './tests/setupTests.ts',
   },
 });
