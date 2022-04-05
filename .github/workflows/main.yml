@@ -61,7 +61,7 @@ jobs:
         uses: bahmutov/npm-install@v1
 
       - name: 🔎 Type check
-        run: yarn typecheck --if-present
+        run: yarn typecheck
 
   vitest:
     name: ⚡ Vitest via Node ${{ matrix.node-version }} on ${{ matrix.os }}
@@ -125,5 +125,5 @@ jobs:
           useLockFile: false
 
       - name: 🧱 Run Build
-        run: yarn build --if-present
+        run: yarn build
 
