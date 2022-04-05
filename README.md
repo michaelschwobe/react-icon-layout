@@ -7,10 +7,9 @@ React hook for displaying icon-to-text relationships.
 [![status](https://img.shields.io/github/workflow/status/michaelschwobe/react-icon-layout/CI?style=flat-square)](https://www.npmjs.com/package/react-icon-layout)
 [![coverage](https://codecov.io/gh/michaelschwobe/react-icon-layout/branch/master/graph/badge.svg?token=NN3EY45TXL)](https://codecov.io/gh/michaelschwobe/react-icon-layout)
 
-<figure>
-  <figcaption>You've likely seen this relationship before within the macOS Finder</figcaption>
-  <img src="https://github.com/michaelschwobe/react-icon-layout/raw/master/media/Finder.png" width="800" alt="macOS Finder with it’s header right-click menu visible" />
-</figure>
+You've likely seen this relationship before within the macOS Finder:
+
+!['macOS Finder with it’s header right-click menu visible'](https://github.com/michaelschwobe/react-icon-layout/raw/develop/media/Finder-light.png#gh-light-mode-only)!['macOS Finder with it’s header right-click menu visible'](https://github.com/michaelschwobe/react-icon-layout/raw/develop/media/Finder-dark.png#gh-dark-mode-only)
 
 ## Features
 
@@ -47,7 +46,7 @@ import 'react-icon-layout/styles.css';
 
 import { ReactComponent as ArrowRightIcon } from './arrow-right.svg';
 
-const NextButton = props => (
+const NextButton = (props) => (
   <button type="button" {...props}>
     <IconLayout
       icon={<ArrowRightIcon />}
@@ -63,7 +62,7 @@ const IconLayoutPicker = () => {
   return (
     <select
       value={iconLayout}
-      onChange={event => dispatch({ type: event.target.value })}
+      onChange={(event) => dispatch({ type: event.target.value })}
     >
       {iconLayoutOptions.map(({ id, name }) => (
         <option key={id} value={id}>
@@ -141,7 +140,7 @@ Consumer component(s). **Required.**
 import { IconLayout } from 'react-icon-layout';
 import 'react-icon-layout/styles.css';
 
-const ExampleIconLayout = props => (
+const ExampleIconLayout = (props) => (
   <IconLayout
     {...props}
     className="exampleIconLayout"
@@ -188,7 +187,7 @@ Slot for the text, similar to a `children` prop.
 ```js
 import { useIconLayout } from 'react-icon-layout';
 
-const TextOnlyButton = props => {
+const TextOnlyButton = (props) => {
   const [state, dispatch] = useIconLayout();
   return (
     <button

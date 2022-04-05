@@ -1,43 +1,35 @@
-# For more about ignoring files, see:
-# https://help.github.com/articles/ignoring-files/
-# https://www.gitignore.io/
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Also https://www.gitignore.io/
 
-# Dependencies
+# dependencies
 node_modules
-/.pnp
-.pnp.js
 
-# Testing
+# testing
 coverage
 
-# Production
+# production
 dist
 storybook-static
 
-# Environments
+# env
 .env.local
 .env.test.local
 .env.development.local
 .env.production.local
 
-# Caches
-.cache
-.rts2_cache_cjs
-.rts2_cache_esm
-.rts2_cache_umd
-.rts2_cache_system
+# caches
 .eslintcache
-.stylelintcache
 
-# Logs
-*.log
-npm-debug.log*
+# logs
 yarn-debug.log*
 yarn-error.log*
 
-# IDEs
-.vscode
-*.sublime-*
+# ide
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
-# Miscellaneous
+# misc
 .DS_Store

@@ -1,0 +1,15 @@
+{
+  "include": ["./vite.config.ts"],
+
+  "compilerOptions": {
+    /* Projects */
+    /* Enable constraints that allow a TypeScript project to be used with project references. */
+    "composite": true,
+
+    /* Modules */
+    /* Specify what module code is generated. */
+    "module": "ESNext",
+    /* Specify how TypeScript looks up a file from a given module specifier. */
+    "moduleResolution": "Node"
+  }
+}
