@@ -120,8 +120,9 @@ jobs:
 
       - name: 📥 Download Dependencies
         uses: bahmutov/npm-install@v1
-        with:
+        env:
           NODE_ENV: production
+        with:
           useLockFile: false
 
       - name: 🧱 Run Build
