@@ -75,7 +75,7 @@ export const iconLayoutReducer = (
 export interface IconLayoutProviderProps {
   /** Sets the content. */
   children: React.ReactNode;
-  /** Sets the initial value */
+  /** Sets the initial state. */
   value?: IconLayoutState | undefined;
 }
 

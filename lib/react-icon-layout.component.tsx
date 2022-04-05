@@ -65,7 +65,7 @@ export interface IconLayoutProps
   direction?: IconLayoutDirection | undefined;
   /** Styles the positioning of the component within a larger parent. */
   placement?: IconLayoutPlacement | undefined;
-  /** TODO: write `variant` prop desc. */
+  /** Styles the display mode. */
   variant?: IconLayoutState | undefined;
   /** Sets the "icon" content, similar to a `children` prop. */
   icon: React.ReactNode;
