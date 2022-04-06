@@ -1,12 +1,15 @@
 name: Publish
 
 on:
-  release:
-    types: [created]
+  push:
+    branches:
+      - $default-branch
+    tags:
+      - 'v*'
 
 jobs:
   build:
-    name: 🚀 Publish to NPM via Node ${{ matrix.node-version }} on ${{ matrix.os }}
+    name: Publish to NPM via Node ${{ matrix.node-version }} on ${{ matrix.os }}
 
     runs-on: ${{ matrix.os }}
 
@@ -16,26 +19,27 @@ jobs:
         os: [ubuntu-latest]
 
     steps:
-      - name: 🛑 Cancel Previous Runs
+      - name: Cancel Previous Runs
         uses: styfle/cancel-workflow-action@0.9.1
 
-      - name: ⬇️ Checkout Repository
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: ⎔ Setup Node
+      - name: Setup Node ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           registry-url: 'https://registry.npmjs.org'
+          cache: yarn
 
-      - name: 📥 Download Dependencies
+      - name: Install Dependencies
         uses: bahmutov/npm-install@v1
         env:
           NODE_ENV: production
         with:
           useLockFile: false
 
-      - name: 🚀 Publish
+      - name: Publish
         run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
