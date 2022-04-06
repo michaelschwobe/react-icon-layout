@@ -2,8 +2,6 @@ name: Publish
 
 on:
   push:
-    branches:
-      - $default-branch
     tags:
       - 'v*'
 
@@ -34,10 +32,9 @@ jobs:
 
       - name: Install Dependencies
         uses: bahmutov/npm-install@v1
-        env:
-          NODE_ENV: production
-        with:
-          useLockFile: false
+
+      - name: Build
+        run: yarn build
 
       - name: Publish
         run: yarn publish
