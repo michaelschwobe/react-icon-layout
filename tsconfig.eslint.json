@@ -3,5 +3,5 @@
 
   "include": ["./src/vite-env.d.ts", "**/*.ts", "**/*.tsx"],
 
-  "exclude": ["build", "coverage", "node_modules"]
+  "exclude": ["coverage", "dist", "node_modules"]
 }

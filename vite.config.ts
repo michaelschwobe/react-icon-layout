@@ -5,6 +5,7 @@ import { resolve } from 'path';
 
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
+import dts from 'vite-plugin-dts';
 import eslintPlugin from 'vite-plugin-eslint';
 
 // -----------------------------------------------------------------------------
@@ -25,7 +26,11 @@ export default defineConfig({
       },
     },
   },
-  plugins: [eslintPlugin(), react()],
+  plugins: [
+    dts({ include: resolve(__dirname, 'lib/index.ts') }),
+    eslintPlugin(),
+    react(),
+  ],
   test: {
     globals: true,
     environment: 'happy-dom',
