@@ -1,9 +1,7 @@
 import { render, screen } from '@testing-library/react';
 
-import {
-  getIconLayoutClassNames,
-  IconLayout,
-} from '../lib/react-icon-layout.component';
+import { IconLayout } from '../src/index';
+import { getIconLayoutClassNames } from '../src/react-icon-layout.component';
 
 // -----------------------------------------------------------------------------
 

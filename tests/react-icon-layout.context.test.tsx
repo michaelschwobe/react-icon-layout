@@ -2,18 +2,16 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { renderHook } from '@testing-library/react-hooks';
 
 import {
-  defaultIconLayoutState,
-  iconLayoutStates,
-} from '../lib/react-icon-layout.constants';
-import {
   IconLayoutDispatchContext,
   IconLayoutProvider,
-  iconLayoutReducer,
+  IconLayoutProviderProps,
   IconLayoutStateContext,
+  defaultIconLayoutState,
+  iconLayoutStates,
   useIconLayoutDispatch,
   useIconLayoutState,
-  IconLayoutProviderProps,
-} from '../lib/react-icon-layout.context';
+} from '../src/index';
+import { iconLayoutReducer } from '../src/react-icon-layout.context';
 
 // -----------------------------------------------------------------------------
 

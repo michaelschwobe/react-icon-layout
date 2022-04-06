@@ -38,8 +38,8 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import {
   IconLayout,
-  iconLayoutOptions,
   IconLayoutProvider,
+  iconLayoutOptions,
   useIconLayoutDispatch,
   useIconLayoutState,
 } from 'react-icon-layout';
@@ -62,27 +62,32 @@ const NextButton = () => {
   );
 };
 
-const IconLayoutPicker = () => {
+const IconLayoutSelector = () => {
   const iconLayoutState = useIconLayoutState();
   const iconLayoutDispatch = useIconLayoutDispatch();
   return (
-    <select
-      value={iconLayoutState}
-      onChange={(event) => iconLayoutDispatch({ type: event.target.value })}
-    >
-      {iconLayoutOptions.map(({ id, name }) => (
-        <option key={id} value={id}>
-          {name}
-        </option>
-      ))}
-    </select>
+    <label htmlFor="iconLayoutSelector">
+      Select icon layout:{' '}
+      <select
+        name="iconLayoutSelector"
+        id="iconLayoutSelector"
+        value={iconLayoutState}
+        onChange={(event) => iconLayoutDispatch({ type: event.target.value })}
+      >
+        {iconLayoutOptions.map(({ id, name }) => (
+          <option key={id} value={id}>
+            {name}
+          </option>
+        ))}
+      </select>
+    </label>
   );
 };
 
 const App = () => (
   <IconLayoutProvider>
     <NextButton />
-    <IconLayoutPicker />
+    <IconLayoutSelector />
   </IconLayoutProvider>
 );
 
@@ -95,8 +100,7 @@ ReactDOM.render(<App />, rootElement);
 ### Advanced Examples
 
 - View “Finder” example on [CodeSandbox](https://codesandbox.io/s/react-icon-layout-finder-example-dzedn)
-- View App example on [GitHub](https://github.com/michaelschwobe/react-icon-layout/blob/develop/src/App.tsx)
-- View Storybook example on [GitHub](https://github.com/michaelschwobe/react-icon-layout/blob/develop/stories/react-icon-layout.stories.tsx)
+- View Storybook examples on [GitHub](https://github.com/michaelschwobe/react-icon-layout/blob/develop/stories/react-icon-layout.stories.tsx)
 
 ## API
 
@@ -150,23 +154,6 @@ import 'react-icon-layout/styles.css';
 
 ### `<IconLayout>`
 
-```jsx
-import { IconLayout } from 'react-icon-layout';
-import 'react-icon-layout/styles.css';
-
-const IconOnly = (props) => (
-  <IconLayout
-    {...props}
-    className="exampleIconOnly"
-    icon="exampleIcon"
-    text="exampleText"
-    direction="center"
-    placement="center"
-    variant="iconOnly"
-  />
-);
-```
-
 #### `className`
 
 `className?: string | undefined;`
@@ -205,16 +192,6 @@ Sets the "text" content, similar to a `children` prop. **Required.**
 
 ### `<IconLayoutProvider>`
 
-```js
-import { IconLayoutProvider } from 'react-icon-layout';
-
-const App = () => (
-  <IconLayoutProvider value="textOnly">
-    <div>exampleChild</div>
-  </IconLayoutProvider>
-);
-```
-
 #### `children`
 
 `children: React.ReactNode;`
@@ -229,37 +206,11 @@ Sets the initial state. **Default:** `'iconAndText'`.
 
 ### `useIconLayoutState()`
 
-```js
-import { useIconLayoutState } from 'react-icon-layout';
-
-const IconLayoutSpan = (props) => {
-  const iconLayoutState = useIconLayoutState();
-  return <span {...props}>{iconLayoutState}</span>;
-};
-```
-
 `const useIconLayoutState: () => IconLayoutState`
 
 Custom hook that returns the context state.
 
 ### `useIconLayoutDispatch()`
-
-```js
-import { useIconLayoutDispatch } from 'react-icon-layout';
-
-const TextOnlyButton = (props) => {
-  const iconLayoutDispatch = useIconLayoutDispatch();
-  return (
-    <button
-      {...props}
-      type="button"
-      onClick={() => iconLayoutDispatch({ type: 'textOnly' })}
-    >
-      Text Only
-    </button>
-  );
-};
-```
 
 `const useIconLayoutDispatch: () => IconLayoutDispatch`
 

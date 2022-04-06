@@ -6,7 +6,7 @@ import {
   iconLayoutOptions,
   iconLayoutPlacements,
   iconLayoutStates,
-} from '../lib/react-icon-layout.constants';
+} from '../src/index';
 
 // -----------------------------------------------------------------------------
 
