@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.json",
 
-  "include": ["./src/vite-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx"],
 
   "exclude": ["coverage", "dist", "node_modules"]
 }
