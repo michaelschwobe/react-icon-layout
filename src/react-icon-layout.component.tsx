@@ -55,15 +55,15 @@ export interface IconLayoutProps
   > {
   /** Sets the `class` attribute. **Default:** `undefined` */
   className?: string | undefined;
-  /** Styles the "icon" placement within the display component. **Default:** `'center'` */
+  /** Styles the “icon” placement within the display component. **Default:** `'center'` */
   placeIcon?: IconLayoutPlacement | undefined;
   /** Styles the component placement within a larger parent. **Default:** `'center'` */
   placeSelf?: IconLayoutPlacement | undefined;
-  /** Styles the display mode. **Default:** `'iconAndText'` */
+  /** Styles the content visibility. **Default:** `'iconAndText'` */
   variant?: IconLayoutState | undefined;
-  /** Sets the "icon" content, similar to a `children` prop. **Required.** */
+  /** Sets the “icon” content, similar to a `children` prop. **Required.** */
   icon: React.ReactNode;
-  /** Sets the "text" content, similar to a `children` prop. **Required.** */
+  /** Sets the “text” content, similar to a `children` prop. **Required.** */
   text: React.ReactNode;
 }
 

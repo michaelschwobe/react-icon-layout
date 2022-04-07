@@ -1,6 +1,6 @@
 # react-icon-layout
 
-React components and hooks for controlling and displaying icon-to-text layouts.
+Everything you need to manage icon-to-text layouts.
 
 [![NPM version](https://img.shields.io/npm/v/react-icon-layout.svg)](https://www.npmjs.com/package/react-icon-layout)
 [![License](https://img.shields.io/npm/l/react-icon-layout)](https://github.com/michaelschwobe/react-icon-layout/blob/master/LICENSE)
@@ -9,15 +9,20 @@ React components and hooks for controlling and displaying icon-to-text layouts.
 [![CodeQL](https://github.com/michaelschwobe/react-icon-layout/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/michaelschwobe/react-icon-layout/actions/workflows/codeql-analysis.yml)
 [![codecov](https://codecov.io/gh/michaelschwobe/react-icon-layout/branch/master/graph/badge.svg?token=NN3EY45TXL&)](https://codecov.io/gh/michaelschwobe/react-icon-layout)
 
-You’ve likely seen this relationship before within the macOS Finder:
+## Use Case
 
-!['macOS Finder with it’s header right-click menu visible'](https://github.com/michaelschwobe/react-icon-layout/raw/master/media/Finder-light.png#gh-light-mode-only)!['macOS Finder with it’s header right-click menu visible'](https://github.com/michaelschwobe/react-icon-layout/raw/master/media/Finder-dark.png#gh-dark-mode-only)
+As a developer, you’d like to:
 
-## Features
+- Create icon-to-text pairs (or other content types) multiple times, and possibly nest them.
+- Dynamically or statically control how some or all icon-to-text pairs display.
+- Use custom or default styles and variables.
 
-- 🎛 Components, context, and hooks for controlling the 3 display modes: `Icon and Text`, `Icon Only`, or `Text Only`.
-- 💅 Styles the “icon” placement within the display component.
-- 💅 Styles the component placement within a larger parent.
+So that you can:
+
+- Ensure layout relationships are consistent and manageable.
+- Allow some or all users to control their own icon-to-text display settings. For example, you’ve likely seen this use case before within the macOS Finder:
+
+!['macOS Finder with it’s header right-click menu visible'](https://github.com/michaelschwobe/react-icon-layout/raw/master/media/Finder-light.png#gh-light-mode-only)!['macOS Finder with it’s header right-click menu visible'](https://github.com/michaelschwobe/react-icon-layout/raw/develop/media/Finder-dark.png#gh-dark-mode-only)
 
 ## Installation
 
@@ -32,8 +37,6 @@ yarn add react-icon-layout
 ```
 
 ## Usage
-
-### Basic Example
 
 ```js
 import * as React from 'react';
@@ -99,54 +102,11 @@ const rootElement = document.getElementById('root');
 ReactDOM.render(<App />, rootElement);
 ```
 
-- View “Basic” example on [CodeSandbox](https://codesandbox.io/s/react-icon-layout-basic-example-urw6e)
-
-### Advanced Examples
-
-- View “Finder” example on [CodeSandbox](https://codesandbox.io/s/react-icon-layout-finder-example-dzedn)
+- View basic example (shown above) on [CodeSandbox](https://codesandbox.io/s/react-icon-layout-basic-example-urw6e)
+- View advanced “Finder” example on [CodeSandbox](https://codesandbox.io/s/react-icon-layout-finder-example-dzedn)
 - View Storybook examples on [GitHub](https://github.com/michaelschwobe/react-icon-layout/blob/master/stories/react-icon-layout.stories.tsx)
 
-## API
-
-### `<IconLayout>`
-
-Display Component.
-
-```ts
-/** Sets the `class` attribute. **Default:** `undefined` */
-className?: string | undefined;
-/** Styles the "icon" placement within the display component. **Default:** `'center'` */
-placeIcon?: IconLayoutPlacement | undefined;
-/** Styles the component placement within a larger parent. **Default:** `'center'` */
-placeSelf?: IconLayoutPlacement | undefined;
-/** Styles the display mode. **Default:** `'iconAndText'` */
-variant?: IconLayoutState | undefined;
-/** Sets the "icon" content, similar to a `children` prop. **Required.** */
-icon: React.ReactNode;
-/** Sets the "text" content, similar to a `children` prop. **Required.** */
-text: React.ReactNode;
-```
-
-### `<IconLayoutProvider>`
-
-Provider component. **\*Optional.** Use with `useIconLayoutState` and/or `useIconLayoutDispatch`.
-
-```ts
-/** Sets the content. **Required.** */
-children: React.ReactNode;
-/** Sets the initial state. **Default:** `iconAndText` */
-value?: IconLayoutState | undefined;
-```
-
-### `useIconLayoutState()`
-
-Hook for accessing `state`. **\*Requires** `IconLayoutProvider`.
-
-### `useIconLayoutDispatch()`
-
-Hook for accessing `dispatch`. **\*Requires** `IconLayoutProvider`.
-
-### All Exports
+## Features
 
 ```ts
 import {
@@ -190,6 +150,46 @@ import type {
 /* Styles for <IconLayout> */
 import 'react-icon-layout/styles.css';
 ```
+
+## API
+
+### `<IconLayout>`
+
+Display Component, does **NOT** a consume context.
+
+```ts
+/** Sets the `class` attribute. **Default:** `undefined` */
+className?: string | undefined;
+/** Styles the “icon” placement within the display component. **Default:** `'center'` */
+placeIcon?: IconLayoutPlacement | undefined;
+/** Styles the component placement within a larger parent. **Default:** `'center'` */
+placeSelf?: IconLayoutPlacement | undefined;
+/** Styles the content visibility. **Default:** `'iconAndText'` */
+variant?: IconLayoutState | undefined;
+/** Sets the “icon” content, similar to a `children` prop. **Required.** */
+icon: React.ReactNode;
+/** Sets the “text” content, similar to a `children` prop. **Required.** */
+text: React.ReactNode;
+```
+
+### `<IconLayoutProvider>`
+
+Provider component.
+
+```ts
+/** Sets the content. **Required.** */
+children: React.ReactNode;
+/** Sets the initial state. **Default:** `iconAndText` */
+value?: IconLayoutState | undefined;
+```
+
+### `useIconLayoutState()`
+
+Hook for accessing `state`, requires `<IconLayoutProvider>`.
+
+### `useIconLayoutDispatch()`
+
+Hook for accessing `dispatch`, requires `<IconLayoutProvider>`.
 
 ## License
 
