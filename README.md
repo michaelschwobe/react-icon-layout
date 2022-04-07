@@ -22,7 +22,7 @@ So that you can:
 - Ensure layout relationships are consistent and manageable.
 - Allow some or all users to control their own icon-to-text display settings. For example, you’ve likely seen this use case before within the macOS Finder:
 
-!['macOS Finder with it’s header right-click menu visible'](https://github.com/michaelschwobe/react-icon-layout/raw/master/media/Finder-light.png#gh-light-mode-only)!['macOS Finder with it’s header right-click menu visible'](https://github.com/michaelschwobe/react-icon-layout/raw/develop/media/Finder-dark.png#gh-dark-mode-only)
+!['macOS Finder with it’s header right-click menu visible'](https://github.com/michaelschwobe/react-icon-layout/raw/master/media/Finder-light.png#gh-light-mode-only)!['macOS Finder with it’s header right-click menu visible'](https://github.com/michaelschwobe/react-icon-layout/raw/master/media/Finder-dark.png#gh-dark-mode-only)
 
 ## Installation
 
