@@ -16,7 +16,7 @@ import { iconLayoutReducer } from '../src/react-icon-layout.context';
 // -----------------------------------------------------------------------------
 
 describe('IconLayoutStateContext', () => {
-  test('Should export a React context component', () => {
+  test('Exported type is a React context component', () => {
     expect(IconLayoutStateContext).toEqual(
       expect.objectContaining({
         Consumer: expect.any(Object),
@@ -27,7 +27,7 @@ describe('IconLayoutStateContext', () => {
 });
 
 describe('IconLayoutDispatchContext', () => {
-  test('Should export a React context component', () => {
+  test('Exported type is a React context component', () => {
     expect(IconLayoutDispatchContext).toEqual(
       expect.objectContaining({
         Consumer: expect.any(Object),
@@ -38,18 +38,18 @@ describe('IconLayoutDispatchContext', () => {
 });
 
 describe('useIconLayoutState', () => {
-  test('Should export a Function', () => {
+  test('Exported type is a Function', () => {
     expect(useIconLayoutState).toEqual(expect.any(Function));
   });
 
-  test('Should throw an Error if used outside of <IconLayoutProvider>', () => {
+  test('Throws an Error if used outside of <IconLayoutProvider>', () => {
     const { result } = renderHook(() => useIconLayoutState());
     expect(result.error).toEqual(
       Error('useIconLayoutState must be used within a <IconLayoutProvider>'),
     );
   });
 
-  test('Should return the default state', () => {
+  test('Returns the default `state`', () => {
     const wrapper = ({ children }) => (
       <IconLayoutProvider>{children}</IconLayoutProvider>
     );
@@ -59,18 +59,18 @@ describe('useIconLayoutState', () => {
 });
 
 describe('useIconLayoutDispatch', () => {
-  test('Should export a Function', () => {
+  test('Exported type is a Function', () => {
     expect(useIconLayoutDispatch).toEqual(expect.any(Function));
   });
 
-  test('Should throw an Error if used outside of <IconLayoutProvider>', () => {
+  test('Throws an Error if used outside of <IconLayoutProvider>', () => {
     const { result } = renderHook(() => useIconLayoutDispatch());
     expect(result.error).toEqual(
       Error('useIconLayoutDispatch must be used within a <IconLayoutProvider>'),
     );
   });
 
-  test('Should return the dispatch function', () => {
+  test('Returns the `dispatch` function', () => {
     const wrapper = ({ children }) => (
       <IconLayoutProvider>{children}</IconLayoutProvider>
     );
@@ -80,14 +80,14 @@ describe('useIconLayoutDispatch', () => {
 });
 
 describe('iconLayoutReducer', () => {
-  test('Should export a Function', () => {
+  test('Exported type is a Function', () => {
     expect(iconLayoutReducer).toEqual(expect.any(Function));
   });
-  test('Should throw an Error if missing params', () => {
+  test('Throws an Error if missing params', () => {
     // @ts-expect-error missing params
     expect(() => iconLayoutReducer()).toThrow();
   });
-  test('Should throw an Error if passed an invalid action', () => {
+  test('Throws an Error if passed an invalid action', () => {
     const state = undefined;
     const action = { type: 'badValue' };
     expect(() => iconLayoutReducer(state, action)).toThrow();
@@ -110,11 +110,11 @@ describe('IconLayoutProvider', () => {
     );
   };
 
-  test('Should export a Function', () => {
+  test('Exported type is a Function', () => {
     expect(IconLayoutProvider).toEqual(expect.any(Function));
   });
 
-  test('Should return the initial state to consumers', () => {
+  test('Returns the INITIAL `state` to consumers', () => {
     const providerProps: Partial<IconLayoutProviderProps> = {
       value: undefined,
     };
@@ -129,7 +129,7 @@ describe('IconLayoutProvider', () => {
     );
   });
 
-  test('Should return the provided state to consumers', () => {
+  test('Returns the PROVIDED `state` to consumers', () => {
     const providerProps: Partial<IconLayoutProviderProps> = {
       value: 'iconOnly',
     };
@@ -144,7 +144,7 @@ describe('IconLayoutProvider', () => {
     );
   });
 
-  test('Should handle state and dispatch events', () => {
+  test('Handles `state` and `dispatch` events', () => {
     const providerProps: Partial<IconLayoutProviderProps> = {
       value: undefined,
     };

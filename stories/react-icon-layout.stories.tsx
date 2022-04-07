@@ -22,6 +22,15 @@ const Template: ComponentStory<typeof IconLayout> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
+  icon: 'icon',
+  text: 'text',
+};
+
+// -----------------------------------------------------------------------------
+
+export const WithReactElements = Template.bind({});
+WithReactElements.args = {
+  ...Default.args,
   icon: (
     <svg
       width="1em"
@@ -68,7 +77,7 @@ const RadioGroup = () => {
   const iconLayoutState = useIconLayoutState();
   const iconLayoutDispatch = useIconLayoutDispatch();
   return (
-    <div style={{ display: 'flex', gap: '1rem' }}>
+    <span style={{ display: 'flex', gap: '1rem' }}>
       {iconLayoutOptions.map(({ id, name }) => (
         <label key={id} htmlFor={`iconLayout-${id}`}>
           <input
@@ -82,7 +91,7 @@ const RadioGroup = () => {
           {name}
         </label>
       ))}
-    </div>
+    </span>
   );
 };
 
@@ -105,7 +114,7 @@ const Buttons = () => {
   const iconLayoutState = useIconLayoutState();
   const iconLayoutDispatch = useIconLayoutDispatch();
   return (
-    <div style={{ display: 'flex', gap: '1rem' }}>
+    <span style={{ display: 'flex', gap: '1rem' }}>
       {iconLayoutOptions.map(({ id, name }) => (
         <button
           key={id}
@@ -117,7 +126,7 @@ const Buttons = () => {
           {name}
         </button>
       ))}
-    </div>
+    </span>
   );
 };
 
