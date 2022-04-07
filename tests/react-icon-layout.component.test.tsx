@@ -6,64 +6,64 @@ import { getIconLayoutClassNames } from '../src/react-icon-layout.component';
 // -----------------------------------------------------------------------------
 
 describe('getIconLayoutClassNames', () => {
-  test('Contains the parent-provided `className`', () => {
+  test('Contains the parent-provided class', () => {
     const result = getIconLayoutClassNames({ className: 'example-className' });
     expect(result).toContain('example-className');
   });
 
-  test('Contains the base `className`', () => {
+  test('Contains the base class', () => {
     const result = getIconLayoutClassNames({});
     expect(result).toContain('icon-layout');
   });
 
-  test('Contains the DEFAULT direction `className`', () => {
+  test('Contains the DEFAULT `placeIcon` class', () => {
     const result = getIconLayoutClassNames({});
-    expect(result).toContain('icon-layout--direction-center');
+    expect(result).toContain('icon-layout--place-icon-center');
   });
 
-  test('Contains the DERIVED direction `className`', () => {
-    const result = getIconLayoutClassNames({ direction: 'top' });
-    expect(result).toContain('icon-layout--direction-top');
+  test('Contains the DERIVED `placeIcon` class', () => {
+    const result = getIconLayoutClassNames({ placeIcon: 'top' });
+    expect(result).toContain('icon-layout--place-icon-top');
   });
 
-  test('Does NOT contain ANY direction `className` when `variant` is NOT the default', () => {
+  test('Does NOT contain ANY `placeIcon` class when `variant` is NOT the default', () => {
     const result = getIconLayoutClassNames({ variant: 'iconOnly' });
-    expect(result).not.toContain(/icon-layout--direction-/i);
+    expect(result).not.toContain(/icon-layout--place-icon-/i);
   });
 
-  test('Does NOT contain ANY direction `className` when an invalid value is provided', () => {
+  test('Does NOT contain ANY `placeIcon` class when an invalid value is provided', () => {
     // @ts-expect-error bad prop passed
-    const result = getIconLayoutClassNames({ direction: 'badValue' });
-    expect(result).not.toContain(/icon-layout--direction-/i);
+    const result = getIconLayoutClassNames({ placeIcon: 'badValue' });
+    expect(result).not.toContain(/icon-layout--place-icon-/i);
   });
 
-  test('Contains the DEFAULT placement `className`', () => {
+  test('Contains the DEFAULT `placeSelf` class', () => {
     const result = getIconLayoutClassNames({});
-    expect(result).toContain('icon-layout--placement-center');
+    expect(result).toContain('icon-layout--place-self-center');
   });
 
-  test('Contains the DERIVED placement `className`', () => {
-    const result = getIconLayoutClassNames({ placement: 'top' });
-    expect(result).toContain('icon-layout--placement-top');
+  test('Contains the DERIVED `placeSelf` class', () => {
+    const result = getIconLayoutClassNames({ placeSelf: 'top' });
+    expect(result).toContain('icon-layout--place-self-top');
   });
 
-  test('Does NOT contain ANY placement `className` when an invalid value is provided', () => {
+  test('Does NOT contain ANY `placeSelf` class when an invalid value is provided', () => {
     // @ts-expect-error bad prop passed
-    const result = getIconLayoutClassNames({ placement: 'badValue' });
-    expect(result).not.toContain(/icon-layout--placement-/i);
+    const result = getIconLayoutClassNames({ placeSelf: 'badValue' });
+    expect(result).not.toContain(/icon-layout--place-self-/i);
   });
 
-  test('Contains the DEFAULT variant `className`', () => {
+  test('Contains the DEFAULT variant class', () => {
     const result = getIconLayoutClassNames({});
     expect(result).toContain('icon-layout--variant-iconAndText');
   });
 
-  test('Contains the DERIVED variant `className`', () => {
+  test('Contains the DERIVED variant class', () => {
     const result = getIconLayoutClassNames({ variant: 'iconOnly' });
     expect(result).toContain('icon-layout--variant-iconOnly');
   });
 
-  test('Does NOT contain ANY variant `className` when an invalid value is provided', () => {
+  test('Does NOT contain ANY variant class when an invalid value is provided', () => {
     // @ts-expect-error bad prop passed
     const result = getIconLayoutClassNames({ variant: 'badValue' });
     expect(result).not.toContain(/icon-layout--variant-/i);

@@ -1,16 +1,14 @@
 import { forwardRef } from 'react';
 
 import {
-  defaultIconLayoutDirection,
-  defaultIconLayoutPlacement,
-  defaultIconLayoutState,
-  iconLayoutDirections,
+  defaultPlaceIcon,
+  defaultPlaceSelf,
+  defaultVariant,
   iconLayoutPlacements,
-  iconLayoutStates,
+  iconLayoutVariants,
 } from './react-icon-layout.constants';
 
 import type {
-  IconLayoutDirection,
   IconLayoutPlacement,
   IconLayoutState,
 } from './react-icon-layout.constants';
@@ -21,29 +19,25 @@ import type {
 
 export const getIconLayoutClassNames = ({
   className,
-  direction = defaultIconLayoutDirection,
-  placement = defaultIconLayoutPlacement,
-  variant = defaultIconLayoutState,
+  placeIcon = defaultPlaceIcon,
+  placeSelf = defaultPlaceSelf,
+  variant = defaultVariant,
 }: Partial<
-  Pick<IconLayoutProps, 'className' | 'variant' | 'direction' | 'placement'>
+  Pick<IconLayoutProps, 'className' | 'placeIcon' | 'placeSelf' | 'variant'>
 >) =>
-  [className, 'icon-layout']
-    .concat(
-      iconLayoutDirections.includes(direction) &&
-        variant === defaultIconLayoutState
-        ? `icon-layout--direction-${direction}`
-        : undefined,
-    )
-    .concat(
-      iconLayoutPlacements.includes(placement)
-        ? `icon-layout--placement-${placement}`
-        : undefined,
-    )
-    .concat(
-      iconLayoutStates.includes(variant)
-        ? `icon-layout--variant-${variant}`
-        : undefined,
-    )
+  [
+    className,
+    'icon-layout',
+    iconLayoutPlacements.includes(placeIcon) && variant === 'iconAndText'
+      ? `icon-layout--place-icon-${placeIcon}`
+      : undefined,
+    iconLayoutPlacements.includes(placeSelf)
+      ? `icon-layout--place-self-${placeSelf}`
+      : undefined,
+    iconLayoutVariants.includes(variant)
+      ? `icon-layout--variant-${variant}`
+      : undefined,
+  ]
     .filter(Boolean)
     .join(' ');
 
@@ -61,10 +55,10 @@ export interface IconLayoutProps
   > {
   /** Sets the `class` attribute. **Default:** `undefined` */
   className?: string | undefined;
-  /** Styles for positioning the icon-to-text relationship while maintaining source order. **Default:** `'center'` */
-  direction?: IconLayoutDirection | undefined;
-  /** Styles for positioning the component within a larger parent. **Default:** `'center'` */
-  placement?: IconLayoutPlacement | undefined;
+  /** Styles the "icon" placement within the display component. **Default:** `'center'` */
+  placeIcon?: IconLayoutPlacement | undefined;
+  /** Styles the component placement within a larger parent. **Default:** `'center'` */
+  placeSelf?: IconLayoutPlacement | undefined;
   /** Styles the display mode. **Default:** `'iconAndText'` */
   variant?: IconLayoutState | undefined;
   /** Sets the "icon" content, similar to a `children` prop. **Required.** */
@@ -77,9 +71,9 @@ export const IconLayout = forwardRef<HTMLSpanElement, IconLayoutProps>(
   (
     {
       className,
-      direction = defaultIconLayoutDirection,
-      placement = defaultIconLayoutPlacement,
-      variant = defaultIconLayoutState,
+      placeIcon = defaultPlaceIcon,
+      placeSelf = defaultPlaceSelf,
+      variant = defaultVariant,
       icon,
       text,
       ...props
@@ -91,8 +85,8 @@ export const IconLayout = forwardRef<HTMLSpanElement, IconLayoutProps>(
         {...props}
         className={getIconLayoutClassNames({
           className,
-          direction,
-          placement,
+          placeIcon,
+          placeSelf,
           variant,
         })}
         ref={forwardedRef}

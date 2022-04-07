@@ -1,8 +1,8 @@
 // -----------------------------------------------------------------------------
-// Direction
+// Placements
 // -----------------------------------------------------------------------------
 
-export const iconLayoutDirections = [
+export const iconLayoutPlacements = [
   'top-left',
   'top',
   'top-right',
@@ -14,33 +14,24 @@ export const iconLayoutDirections = [
   'bottom-right',
 ] as const;
 
-export const defaultIconLayoutDirection = 'center';
-
-export type IconLayoutDirection = typeof iconLayoutDirections[number];
-
-// -----------------------------------------------------------------------------
-// Placement
-// -----------------------------------------------------------------------------
-
-export const iconLayoutPlacements = iconLayoutDirections;
-
-export const defaultIconLayoutPlacement = 'center';
+export const defaultPlaceIcon = 'center';
+export const defaultPlaceSelf = 'center';
 
 export type IconLayoutPlacement = typeof iconLayoutPlacements[number];
 
 // -----------------------------------------------------------------------------
-// State / Actions
+// Variant/State & Actions
 // -----------------------------------------------------------------------------
 
-export const iconLayoutStates = [
+export const iconLayoutVariants = [
   'iconAndText',
   'iconOnly',
   'textOnly',
 ] as const;
 
-export const defaultIconLayoutState = 'iconAndText';
+export const defaultVariant = 'iconAndText';
 
-export type IconLayoutState = typeof iconLayoutStates[number];
+export type IconLayoutState = typeof iconLayoutVariants[number];
 
 export type IconLayoutAction =
   | { type: IconLayoutState }
@@ -53,10 +44,10 @@ export type IconLayoutDispatch = React.Dispatch<IconLayoutAction>;
 // Options
 // -----------------------------------------------------------------------------
 
-export const iconLayoutOptions: IconLayoutOption[] = [
+export const iconLayoutOptions: IconLayoutOptions = [
   { id: 'iconAndText', name: 'Icon and Text' },
   { id: 'iconOnly', name: 'Icon Only' },
   { id: 'textOnly', name: 'Text Only' },
 ];
 
-export type IconLayoutOption = { id: IconLayoutState; name: string };
+export type IconLayoutOptions = { id: IconLayoutState; name: string }[];

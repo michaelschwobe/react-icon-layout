@@ -1,17 +1,15 @@
 export {
-  defaultIconLayoutDirection,
-  defaultIconLayoutPlacement,
-  defaultIconLayoutState,
-  iconLayoutDirections,
+  defaultPlaceIcon,
+  defaultPlaceSelf,
+  defaultVariant,
   iconLayoutOptions,
   iconLayoutPlacements,
-  iconLayoutStates,
+  iconLayoutVariants,
 } from './react-icon-layout.constants';
 export type {
   IconLayoutAction,
-  IconLayoutDirection,
   IconLayoutDispatch,
-  IconLayoutOption,
+  IconLayoutOptions,
   IconLayoutPlacement,
   IconLayoutState,
 } from './react-icon-layout.constants';

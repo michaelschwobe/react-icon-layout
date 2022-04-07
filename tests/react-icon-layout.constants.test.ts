@@ -1,34 +1,13 @@
 import {
-  defaultIconLayoutDirection,
-  defaultIconLayoutPlacement,
-  defaultIconLayoutState,
-  iconLayoutDirections,
+  defaultPlaceIcon,
+  defaultPlaceSelf,
+  defaultVariant,
   iconLayoutOptions,
   iconLayoutPlacements,
-  iconLayoutStates,
+  iconLayoutVariants,
 } from '../src/index';
 
 // -----------------------------------------------------------------------------
-
-describe('iconLayoutDirections', () => {
-  test('Exported type is an Array of Strings', () => {
-    expect(iconLayoutDirections).toEqual(
-      expect.arrayContaining([expect.any(String)]),
-    );
-  });
-});
-
-describe('defaultIconLayoutDirection', () => {
-  test('Exported type is a String', () => {
-    expect(defaultIconLayoutDirection).toEqual(expect.any(String));
-  });
-
-  test('Found within `iconLayoutDirections`', () => {
-    expect(iconLayoutDirections.includes(defaultIconLayoutDirection)).toEqual(
-      true,
-    );
-  });
-});
 
 describe('iconLayoutPlacements', () => {
   test('Exported type is an Array of Strings', () => {
@@ -38,33 +17,41 @@ describe('iconLayoutPlacements', () => {
   });
 });
 
-describe('defaultIconLayoutPlacement', () => {
+describe('defaultPlaceIcon', () => {
   test('Exported type is a String', () => {
-    expect(defaultIconLayoutPlacement).toEqual(expect.any(String));
+    expect(defaultPlaceIcon).toEqual(expect.any(String));
   });
 
   test('Found within `iconLayoutPlacements`', () => {
-    expect(iconLayoutPlacements.includes(defaultIconLayoutPlacement)).toEqual(
-      true,
-    );
+    expect(iconLayoutPlacements.includes(defaultPlaceIcon)).toEqual(true);
   });
 });
 
-describe('iconLayoutStates', () => {
+describe('defaultPlaceSelf', () => {
+  test('Exported type is a String', () => {
+    expect(defaultPlaceSelf).toEqual(expect.any(String));
+  });
+
+  test('Found within `iconLayoutPlacements`', () => {
+    expect(iconLayoutPlacements.includes(defaultPlaceSelf)).toEqual(true);
+  });
+});
+
+describe('iconLayoutVariants', () => {
   test('Exported type is an Array of Strings', () => {
-    expect(iconLayoutStates).toEqual(
+    expect(iconLayoutVariants).toEqual(
       expect.arrayContaining([expect.any(String)]),
     );
   });
 });
 
-describe('defaultIconLayoutState', () => {
+describe('defaultVariant', () => {
   test('Exported type is a String', () => {
-    expect(defaultIconLayoutState).toEqual(expect.any(String));
+    expect(defaultVariant).toEqual(expect.any(String));
   });
 
-  test('Found within `iconLayoutStates`', () => {
-    expect(iconLayoutStates.includes(defaultIconLayoutState)).toEqual(true);
+  test('Found within `iconLayoutVariants`', () => {
+    expect(iconLayoutVariants.includes(defaultVariant)).toEqual(true);
   });
 });
 

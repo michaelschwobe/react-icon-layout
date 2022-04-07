@@ -1,6 +1,6 @@
 import { createContext, useContext, useReducer } from 'react';
 
-import { defaultIconLayoutState } from './react-icon-layout.constants';
+import { defaultVariant } from './react-icon-layout.constants';
 
 import type {
   IconLayoutAction,
@@ -62,7 +62,7 @@ export const iconLayoutReducer = (
     case 'textOnly':
       return action.type;
     case 'reset':
-      return defaultIconLayoutState;
+      return defaultVariant;
     default:
       throw new Error(`Unhandled action type: ${action.type}`);
   }
@@ -81,7 +81,7 @@ export interface IconLayoutProviderProps {
 
 export const IconLayoutProvider = ({
   children,
-  value = defaultIconLayoutState,
+  value = defaultVariant,
 }: IconLayoutProviderProps): JSX.Element => {
   const [state, dispatch] = useReducer(iconLayoutReducer, value);
   return (

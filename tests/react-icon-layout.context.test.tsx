@@ -6,8 +6,8 @@ import {
   IconLayoutProvider,
   IconLayoutProviderProps,
   IconLayoutStateContext,
-  defaultIconLayoutState,
-  iconLayoutStates,
+  defaultVariant,
+  iconLayoutVariants,
   useIconLayoutDispatch,
   useIconLayoutState,
 } from '../src/index';
@@ -54,7 +54,7 @@ describe('useIconLayoutState', () => {
       <IconLayoutProvider>{children}</IconLayoutProvider>
     );
     const { result } = renderHook(() => useIconLayoutState(), { wrapper });
-    expect(result.current).toEqual(defaultIconLayoutState);
+    expect(result.current).toEqual(defaultVariant);
   });
 });
 
@@ -125,7 +125,7 @@ describe('IconLayoutProvider', () => {
       { providerProps },
     );
     expect(screen.getByText(/^Received:/).textContent).toContain(
-      defaultIconLayoutState,
+      defaultVariant,
     );
   });
 
@@ -155,7 +155,7 @@ describe('IconLayoutProvider', () => {
             {(dispatch) => (
               <>
                 <span>state: {state}</span>
-                {[...iconLayoutStates, 'reset'].map((variant) => (
+                {[...iconLayoutVariants, 'reset'].map((variant) => (
                   <button
                     key={variant}
                     type="button"
