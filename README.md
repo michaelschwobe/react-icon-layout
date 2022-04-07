@@ -1,11 +1,13 @@
 # react-icon-layout
 
-React hook for displaying icon-to-text relationships.
+React components and hooks for controlling and displaying icon-to-text layouts.
 
-[![version](https://img.shields.io/npm/v/react-icon-layout.svg?style=flat-square)](https://www.npmjs.com/package/react-icon-layout)
-[![license](https://img.shields.io/npm/l/react-icon-layout?style=flat-square)](https://github.com/michaelschwobe/react-icon-layout/blob/develop/LICENSE)
-[![status](https://img.shields.io/github/workflow/status/michaelschwobe/react-icon-layout/CI?style=flat-square)](https://www.npmjs.com/package/react-icon-layout)
-[![coverage](https://codecov.io/gh/michaelschwobe/react-icon-layout/branch/develop/graph/badge.svg?token=NN3EY45TXL)](https://codecov.io/gh/michaelschwobe/react-icon-layout)
+[![NPM version](https://img.shields.io/npm/v/react-icon-layout.svg)](https://www.npmjs.com/package/react-icon-layout)
+[![License](https://img.shields.io/npm/l/react-icon-layout)](https://github.com/michaelschwobe/react-icon-layout/blob/develop/LICENSE)
+[![NPM status](https://img.shields.io/github/workflow/status/michaelschwobe/react-icon-layout/CI)](https://www.npmjs.com/package/react-icon-layout)
+[![CI](https://github.com/michaelschwobe/react-icon-layout/actions/workflows/ci.yml/badge.svg)](https://github.com/michaelschwobe/react-icon-layout/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/michaelschwobe/react-icon-layout/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/michaelschwobe/react-icon-layout/actions/workflows/codeql-analysis.yml)
+[![codecov](https://codecov.io/gh/michaelschwobe/react-icon-layout/branch/master/graph/badge.svg?token=NN3EY45TXL&)](https://codecov.io/gh/michaelschwobe/react-icon-layout)
 
 You've likely seen this relationship before within the macOS Finder:
 
@@ -13,9 +15,9 @@ You've likely seen this relationship before within the macOS Finder:
 
 ## Features
 
-- 3 common display modes: `Icon and Text`, `Icon Only`, or `Text Only`.
-- Styles for positioning of `icon` to `text` while maintaining source order.
-- Styles for positioning of `<IconLayout>` within a larger parent.
+- Context and hooks for controlling the 3 display modes: `Icon and Text`, `Icon Only`, or `Text Only`.
+- Styles for positioning the icon-to-text relationship while maintaining source order.
+- Styles for positioning the display component within a larger parent.
 
 ## Installation
 
@@ -104,39 +106,77 @@ ReactDOM.render(<App />, rootElement);
 
 ## API
 
-### Exports
+### `<IconLayout>`
+
+Display Component.
+
+```ts
+/** Sets the `class` attribute. **Default:** `undefined` */
+className?: string | undefined;
+/** Styles for positioning the icon-to-text relationship while maintaining source order. **Default:** `'center'` */
+direction?: IconLayoutDirection | undefined;
+/** Styles for positioning the component within a larger parent. **Default:** `'center'` */
+placement?: IconLayoutPlacement | undefined;
+/** Styles the display mode. **Default:** `'iconAndText'` */
+variant?: IconLayoutState | undefined;
+/** Sets the "icon" content, similar to a `children` prop. **Required.** */
+icon: React.ReactNode;
+/** Sets the "text" content, similar to a `children` prop. **Required.** */
+text: React.ReactNode;
+```
+
+### `<IconLayoutProvider>`
+
+Provider component. **\*Optional.** Use with `useIconLayoutState` and/or `useIconLayoutDispatch`.
+
+```ts
+/** Sets the content. **Required.** */
+children: React.ReactNode;
+/** Sets the initial state. **Default:** `iconAndText` */
+value?: IconLayoutState | undefined;
+```
+
+### `useIconLayoutState()`
+
+Hook for accessing `state`. **\*Requires** `IconLayoutProvider`.
+
+### `useIconLayoutDispatch()`
+
+Hook for accessing `dispatch`. **\*Requires** `IconLayoutProvider`.
+
+### All Exports
 
 ```ts
 import {
-  /* ↓ List of `direction` prop values */
+  /* List of `direction` prop values */
   iconLayoutDirections,
-  /* ↓ List of `placement` prop values */
+  /* List of `placement` prop values */
   iconLayoutPlacements,
-  /* ↓ List of `variant` prop values / context states */
+  /* List of `variant` prop values / context states */
   iconLayoutStates,
-  /* ↓ List for iterating button/input/option/etc elements */
+  /* List for iterating button/input/option/etc elements */
   iconLayoutOptions,
-  /* ↓ Default `direction` prop value */
+  /* Default `direction` prop value */
   defaultIconLayoutDirection,
-  /* ↓ Default `placement` prop value */
+  /* Default `placement` prop value */
   defaultIconLayoutPlacement,
-  /* ↓ Default `placement` prop value / context state */
+  /* Default `placement` prop value / context state */
   defaultIconLayoutState,
-  /* ↓ Context component for `dispatch` */
+  /* Context component for `dispatch` */
   IconLayoutDispatchContext,
-  /* ↓ Context component for `state` */
+  /* Context component for `state` */
   IconLayoutStateContext,
-  /* ↓ Provider component */
+  /* Provider component */
   IconLayoutProvider,
-  /* ↓ Display Component */
+  /* Display Component */
   IconLayout,
-  /* ↓ Hook for accessing `state` */
+  /* Hook for accessing `state` */
   useIconLayoutState,
-  /* ↓ Hook for accessing `dispatch` */
+  /* Hook for accessing `dispatch` */
   useIconLayoutDispatch,
 } from 'react-icon-layout';
 
-/* ↓ Types for when using TypeScript */
+/* Types for when using TypeScript */
 import type {
   IconLayoutAction,
   IconLayoutDirection,
@@ -148,73 +188,9 @@ import type {
   IconLayoutState,
 } from 'react-icon-layout';
 
-/* ↓ Styles for <IconLayout> */
+/* Styles for <IconLayout> */
 import 'react-icon-layout/styles.css';
 ```
-
-### `<IconLayout>`
-
-#### `className`
-
-`className?: string | undefined;`
-
-Sets the `class` attribute. **Default:** `undefined`
-
-#### `direction`
-
-`direction?: IconLayoutDirection | undefined;`
-
-Styles the positioning of `icon` to `text` while maintaining source order. **Default:** `center`
-
-#### `placement`
-
-`placement?: IconLayoutPlacement | undefined;`
-
-Styles the positioning of the component within a larger parent. **Default:** `center`
-
-#### `variant`
-
-`variant?: IconLayoutState | undefined;`
-
-Styles the display mode. **Default:** `iconAndText`
-
-#### `icon`
-
-`icon: React.ReactNode;`
-
-Sets the "icon" content, similar to a `children` prop. **Required.**
-
-#### `text`
-
-`text: React.ReactNode;`
-
-Sets the "text" content, similar to a `children` prop. **Required.**
-
-### `<IconLayoutProvider>`
-
-#### `children`
-
-`children: React.ReactNode;`
-
-Sets the content. **Required.**
-
-#### `value`
-
-`value?: IconLayoutState | undefined;`
-
-Sets the initial state. **Default:** `'iconAndText'`.
-
-### `useIconLayoutState()`
-
-`const useIconLayoutState: () => IconLayoutState`
-
-Custom hook that returns the context state.
-
-### `useIconLayoutDispatch()`
-
-`const useIconLayoutDispatch: () => IconLayoutDispatch`
-
-Custom hook that returns the method to update context state.
 
 ## License
 
