@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import * as React from 'react';
 
 import {
   defaultPlaceIcon,
@@ -67,7 +67,7 @@ export interface IconLayoutProps
   text: React.ReactNode;
 }
 
-export const IconLayout = forwardRef<HTMLSpanElement, IconLayoutProps>(
+export const IconLayout = React.forwardRef<HTMLSpanElement, IconLayoutProps>(
   (
     {
       className,

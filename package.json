@@ -1,7 +1,7 @@
 {
   "name": "react-icon-layout",
   "description": "Everything you need to manage icon-to-text layouts.",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "license": "MIT",
   "author": "Michael Schwobe <mschwobe@gmail.com> (https://michaelschwobe.com)",
   "repository": "github:michaelschwobe/react-icon-layout",
@@ -21,6 +21,10 @@
     ".": {
       "require": "./dist/index.js",
       "import": "./dist/index.mjs"
+    },
+    "./styles.css": {
+      "require": "./styles.css",
+      "import": "./styles.css"
     }
   },
   "files": [

@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from 'react';
+import * as React from 'react';
 
 import { defaultVariant } from './react-icon-layout.constants';
 
@@ -12,13 +12,13 @@ import type {
 // Context
 // -----------------------------------------------------------------------------
 
-export const IconLayoutStateContext = createContext<
+export const IconLayoutStateContext = React.createContext<
   IconLayoutState | undefined
 >(undefined);
 
 IconLayoutStateContext.displayName = 'IconLayoutStateContext';
 
-export const IconLayoutDispatchContext = createContext<
+export const IconLayoutDispatchContext = React.createContext<
   IconLayoutDispatch | undefined
 >(undefined);
 
@@ -29,7 +29,7 @@ IconLayoutDispatchContext.displayName = 'IconLayoutDispatchContext';
 // -----------------------------------------------------------------------------
 
 export const useIconLayoutState = (): IconLayoutState => {
-  const context = useContext(IconLayoutStateContext);
+  const context = React.useContext(IconLayoutStateContext);
   if (context === undefined) {
     throw new Error(
       'useIconLayoutState must be used within a <IconLayoutProvider>',
@@ -39,7 +39,7 @@ export const useIconLayoutState = (): IconLayoutState => {
 };
 
 export const useIconLayoutDispatch = (): IconLayoutDispatch => {
-  const context = useContext(IconLayoutDispatchContext);
+  const context = React.useContext(IconLayoutDispatchContext);
   if (context === undefined) {
     throw new Error(
       'useIconLayoutDispatch must be used within a <IconLayoutProvider>',
@@ -83,7 +83,7 @@ export const IconLayoutProvider = ({
   children,
   value = defaultVariant,
 }: IconLayoutProviderProps): JSX.Element => {
-  const [state, dispatch] = useReducer(iconLayoutReducer, value);
+  const [state, dispatch] = React.useReducer(iconLayoutReducer, value);
   return (
     <IconLayoutStateContext.Provider value={state}>
       <IconLayoutDispatchContext.Provider value={dispatch}>
