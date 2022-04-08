@@ -17,6 +17,7 @@ import type {
 // Helper
 // -----------------------------------------------------------------------------
 
+/** Helper for combining `IconLayout` class names */
 export const getIconLayoutClassNames = ({
   className,
   placeIcon = defaultPlaceIcon,
@@ -67,6 +68,7 @@ export interface IconLayoutProps
   text: React.ReactNode;
 }
 
+/** Display component */
 export const IconLayout = React.forwardRef<HTMLSpanElement, IconLayoutProps>(
   (
     {

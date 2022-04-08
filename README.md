@@ -22,7 +22,19 @@ So that you can:
 - Ensure layout relationships are consistent and manageable.
 - Allow some or all users to control their own icon-to-text display settings. For example, you’ve likely seen this use case before within the macOS Finder:
 
-!['macOS Finder with it’s header right-click menu visible'](https://github.com/michaelschwobe/react-icon-layout/raw/master/media/Finder-light.png#gh-light-mode-only)!['macOS Finder with it’s header right-click menu visible'](https://github.com/michaelschwobe/react-icon-layout/raw/master/media/Finder-dark.png#gh-dark-mode-only)
+<p>
+  <picture>
+    <source
+      srcset="https://github.com/michaelschwobe/react-icon-layout/raw/master/media/Finder-dark.png"
+      media="(prefers-color-scheme: dark)"
+    />
+    <img
+      src="https://github.com/michaelschwobe/react-icon-layout/raw/master/media/Finder-light.png"
+      alt="'macOS Finder with it’s header right-click menu visible'"
+      style="max-width: 100%;"
+    />
+  </picture>
+</p>
 
 ## Installation
 
@@ -110,29 +122,29 @@ ReactDOM.render(<App />, rootElement);
 
 ```ts
 import {
-  /* Default `placeIcon` prop value */
+  /** Default `placeIcon` prop value */
   defaultPlaceIcon,
-  /* Default `placeSelf` prop value */
+  /** Default `placeSelf` prop value */
   defaultPlaceSelf,
-  /* Default `variant` prop value */
+  /** Default `variant` prop value / context state */
   defaultVariant,
-  /* List of `placeIcon` and `placeSelf` prop values */
+  /** List of `placeIcon` and `placeSelf` prop values */
   iconLayoutPlacements,
-  /* List of `variant` prop values / context states */
+  /** List of `variant` prop values / context states */
   iconLayoutVariants,
-  /* List for iterating button/input/option/etc elements */
+  /** List for iterating button/input/option/etc elements */
   iconLayoutOptions,
-  /* Display Component */
+  /** Display component */
   IconLayout,
-  /* Context component for `state` */
+  /** Context component for `state` */
   IconLayoutStateContext,
-  /* Context component for `dispatch` */
+  /** Context component for `dispatch` */
   IconLayoutDispatchContext,
-  /* Provider component */
+  /** Context provider component */
   IconLayoutProvider,
-  /* Hook for accessing `state` */
+  /** Hook for accessing context `state` */
   useIconLayoutState,
-  /* Hook for accessing `dispatch` */
+  /** Hook for accessing context `dispatch` */
   useIconLayoutDispatch,
 } from 'react-icon-layout';
 
@@ -155,7 +167,7 @@ import 'react-icon-layout/styles.css';
 
 ### `<IconLayout>`
 
-Display Component, does **NOT** a consume context.
+Display component, does **NOT** consume context.
 
 ```ts
 /** Sets the `class` attribute. **Default:** `undefined` */
