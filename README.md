@@ -172,9 +172,9 @@ Display component, does **NOT** consume context.
 ```ts
 /** Sets the `class` attribute. **Default:** `undefined` */
 className?: string | undefined;
-/** Styles the “icon” placement within the display component. **Default:** `'center'` */
+/** Styles the “icon” placement within the display component. **Default:** `'left'` */
 placeIcon?: IconLayoutPlacement | undefined;
-/** Styles the component placement within a larger parent. **Default:** `'center'` */
+/** Styles the component placement within a larger parent. **Default:** `undefined` */
 placeSelf?: IconLayoutPlacement | undefined;
 /** Styles the content visibility. **Default:** `'iconAndText'` */
 variant?: IconLayoutState | undefined;

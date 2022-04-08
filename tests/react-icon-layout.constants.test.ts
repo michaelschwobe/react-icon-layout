@@ -29,11 +29,11 @@ describe('defaultPlaceIcon', () => {
 
 describe('defaultPlaceSelf', () => {
   test('Exported type is a String', () => {
-    expect(defaultPlaceSelf).toEqual(expect.any(String));
+    expect(defaultPlaceSelf).toBeUndefined();
   });
 
   test('Found within `iconLayoutPlacements`', () => {
-    expect(iconLayoutPlacements.includes(defaultPlaceSelf)).toEqual(true);
+    expect(iconLayoutPlacements.includes(defaultPlaceSelf)).toEqual(false);
   });
 });
 
