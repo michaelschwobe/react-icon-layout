@@ -1,7 +1,7 @@
 {
   "name": "react-icon-layout",
   "description": "Everything you need to manage icon-to-text layouts.",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "license": "MIT",
   "author": "Michael Schwobe <mschwobe@gmail.com> (https://michaelschwobe.com)",
   "repository": "github:michaelschwobe/react-icon-layout",
