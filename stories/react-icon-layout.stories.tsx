@@ -10,6 +10,8 @@ import {
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
 // -----------------------------------------------------------------------------
+// Stories
+// -----------------------------------------------------------------------------
 
 export default {
   component: IconLayout,
@@ -25,6 +27,7 @@ Default.args = {
   icon: 'icon',
   text: 'text',
 };
+Default.storyName = 'Icon and Text (default)';
 
 export const IconOnly = Template.bind({});
 IconOnly.args = {
@@ -41,22 +44,22 @@ TextOnly.args = {
 export const WithReactElements = Template.bind({});
 WithReactElements.args = {
   ...Default.args,
-  icon: (
-    <svg
-      width="1em"
-      height="1em"
-      viewBox="0 0 16 16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <circle cx="8" cy="8" r="8" />
-    </svg>
-  ),
-  text: (
-    <>
-      Lorem ipsum <br />
-      dolor sit amet
-    </>
-  ),
+  icon: <ArrowRightIcon />,
+  text: <Lorem />,
+};
+
+export const WithNestedIcon = Template.bind({});
+WithNestedIcon.args = {
+  ...Default.args,
+  icon: <WithReactElements {...WithReactElements.args} />,
+  text: 'text',
+};
+
+export const WithNestedText = Template.bind({});
+WithNestedText.args = {
+  ...Default.args,
+  icon: 'icon',
+  text: <WithReactElements {...WithReactElements.args} />,
 };
 
 export const WithIconLayoutProvider = () => (
@@ -86,6 +89,17 @@ export const WithIconLayoutProvider = () => (
 WithIconLayoutProvider.storyName = 'With IconLayoutProvider';
 
 // -----------------------------------------------------------------------------
+// Helpers
+// -----------------------------------------------------------------------------
+
+function Lorem() {
+  return (
+    <>
+      Lorem ipsum <br />
+      dolor sit amet
+    </>
+  );
+}
 
 function Select() {
   const iconLayoutState = useIconLayoutState();

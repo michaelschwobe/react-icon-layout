@@ -1,6 +1,6 @@
 /*! react-icon-layout v2.0.1 | MIT License | https://github.com/michaelschwobe/react-icon-layout */
 
-.icon-layout {
+:where(.icon-layout) {
   --icon-layout-gap: 0.5em;
 }
 
@@ -8,53 +8,53 @@
 /* placeSelf
 /* -------------------------------------------------------------------------- */
 
-[class*='icon-layout--place-self'] {
+:where([class*='icon-layout--place-self']) {
   display: flex;
   width: 100%;
   height: 100%;
 }
 
-.icon-layout--place-self-top-left {
+:where(.icon-layout--place-self-top-left) {
   justify-content: flex-start;
   align-items: flex-start;
 }
 
-.icon-layout--place-self-top {
+:where(.icon-layout--place-self-top) {
   justify-content: center;
   align-items: flex-start;
 }
 
-.icon-layout--place-self-top-right {
+:where(.icon-layout--place-self-top-right) {
   justify-content: flex-end;
   align-items: flex-start;
 }
 
-.icon-layout--place-self-left {
+:where(.icon-layout--place-self-left) {
   justify-content: flex-start;
   align-items: center;
 }
 
-.icon-layout--place-self-center {
+:where(.icon-layout--place-self-center) {
   justify-content: center;
   align-items: center;
 }
 
-.icon-layout--place-self-right {
+:where(.icon-layout--place-self-right) {
   justify-content: flex-end;
   align-items: center;
 }
 
-.icon-layout--place-self-bottom-left {
+:where(.icon-layout--place-self-bottom-left) {
   justify-content: flex-start;
   align-items: flex-end;
 }
 
-.icon-layout--place-self-bottom {
+:where(.icon-layout--place-self-bottom) {
   justify-content: center;
   align-items: flex-end;
 }
 
-.icon-layout--place-self-bottom-right {
+:where(.icon-layout--place-self-bottom-right) {
   justify-content: flex-end;
   align-items: flex-end;
 }
@@ -63,52 +63,52 @@
 /* placeIcon
 /* -------------------------------------------------------------------------- */
 
-[class*='icon-layout--place-icon'] .icon-layout__inner {
+:where([class*='icon-layout--place-icon'] > .icon-layout__inner) {
   display: inline-flex;
   vertical-align: middle;
 }
 
-.icon-layout--place-icon-top-left .icon-layout__inner {
+:where(.icon-layout--place-icon-top-left > .icon-layout__inner) {
   flex-direction: row;
   align-items: flex-start;
 }
 
-.icon-layout--place-icon-top .icon-layout__inner {
+:where(.icon-layout--place-icon-top > .icon-layout__inner) {
   flex-direction: column;
   align-items: center;
 }
 
-.icon-layout--place-icon-top-right .icon-layout__inner {
+:where(.icon-layout--place-icon-top-right > .icon-layout__inner) {
   flex-direction: row-reverse;
   align-items: flex-start;
 }
 
-.icon-layout--place-icon-left .icon-layout__inner {
+:where(.icon-layout--place-icon-left > .icon-layout__inner) {
   flex-direction: row;
   align-items: center;
 }
 
-.icon-layout--place-icon-center .icon-layout__inner {
+:where(.icon-layout--place-icon-center > .icon-layout__inner) {
   flex-direction: column;
   align-items: center;
 }
 
-.icon-layout--place-icon-right .icon-layout__inner {
+:where(.icon-layout--place-icon-right > .icon-layout__inner) {
   flex-direction: row-reverse;
   align-items: center;
 }
 
-.icon-layout--place-icon-bottom-left .icon-layout__inner {
+:where(.icon-layout--place-icon-bottom-left > .icon-layout__inner) {
   flex-direction: row;
   align-items: flex-end;
 }
 
-.icon-layout--place-icon-bottom .icon-layout__inner {
+:where(.icon-layout--place-icon-bottom > .icon-layout__inner) {
   flex-direction: column-reverse;
   align-items: center;
 }
 
-.icon-layout--place-icon-bottom-right .icon-layout__inner {
+:where(.icon-layout--place-icon-bottom-right > .icon-layout__inner) {
   flex-direction: row-reverse;
   align-items: flex-end;
 }
@@ -117,55 +117,55 @@
 /* Content
 /* -------------------------------------------------------------------------- */
 
-[class*='icon-layout--place-icon'] .icon-layout__icon-wrap {
+:where([class*='icon-layout--place-icon'] > span > .icon-layout__icon-wrap) {
   flex: 0 0 auto;
 }
 
-.icon-layout--place-icon-top-left .icon-layout__icon-wrap {
+:where(.icon-layout--place-icon-top-left > span > .icon-layout__icon-wrap) {
   margin-right: var(--icon-layout-gap);
 }
 
-.icon-layout--place-icon-top .icon-layout__icon-wrap {
+:where(.icon-layout--place-icon-top > span > .icon-layout__icon-wrap) {
   margin-bottom: var(--icon-layout-gap);
 }
 
-.icon-layout--place-icon-top-right .icon-layout__icon-wrap {
+:where(.icon-layout--place-icon-top-right > span > .icon-layout__icon-wrap) {
   margin-left: var(--icon-layout-gap);
 }
 
-.icon-layout--place-icon-left .icon-layout__icon-wrap {
+:where(.icon-layout--place-icon-left > span > .icon-layout__icon-wrap) {
   margin-right: var(--icon-layout-gap);
 }
 
-.icon-layout--place-icon-center .icon-layout__icon-wrap {
+:where(.icon-layout--place-icon-center > span > .icon-layout__icon-wrap) {
   margin-bottom: var(--icon-layout-gap);
 }
 
-.icon-layout--place-icon-right .icon-layout__icon-wrap {
+:where(.icon-layout--place-icon-right > span > .icon-layout__icon-wrap) {
   margin-left: var(--icon-layout-gap);
 }
 
-.icon-layout--place-icon-bottom-left .icon-layout__icon-wrap {
+:where(.icon-layout--place-icon-bottom-left > span > .icon-layout__icon-wrap) {
   margin-right: var(--icon-layout-gap);
 }
 
-.icon-layout--place-icon-bottom .icon-layout__icon-wrap {
+:where(.icon-layout--place-icon-bottom > span > .icon-layout__icon-wrap) {
   margin-top: var(--icon-layout-gap);
 }
 
-.icon-layout--place-icon-bottom-right .icon-layout__icon-wrap {
+:where(.icon-layout--place-icon-bottom-right > span > .icon-layout__icon-wrap) {
   margin-left: var(--icon-layout-gap);
 }
 
-.icon-layout__icon-wrap img,
-.icon-layout__icon-wrap svg {
+:where(.icon-layout__icon-wrap > img),
+:where(.icon-layout__icon-wrap > svg) {
   display: block;
   max-width: 100%;
   max-height: 100%;
 }
 
-.icon-layout--variant-textOnly .icon-layout__icon-wrap,
-.icon-layout--variant-iconOnly .icon-layout__text-wrap {
+:where(.icon-layout--variant-textOnly > span > .icon-layout__icon-wrap),
+:where(.icon-layout--variant-iconOnly > span > .icon-layout__text-wrap) {
   white-space: nowrap;
   position: absolute;
   overflow: hidden;
