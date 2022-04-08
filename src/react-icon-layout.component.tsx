@@ -20,22 +20,24 @@ import type {
 /** Helper for combining `IconLayout` class names */
 export const getIconLayoutClassNames = ({
   className,
-  placeIcon = defaultPlaceIcon,
-  placeSelf = defaultPlaceSelf,
-  variant = defaultVariant,
+  placeIcon,
+  placeSelf,
+  variant,
 }: Partial<
   Pick<IconLayoutProps, 'className' | 'placeIcon' | 'placeSelf' | 'variant'>
 >) =>
   [
     className,
     'icon-layout',
-    iconLayoutPlacements.includes(placeIcon) && variant === 'iconAndText'
+    variant === 'iconAndText' &&
+    placeIcon &&
+    iconLayoutPlacements.includes(placeIcon)
       ? `icon-layout--place-icon-${placeIcon}`
       : undefined,
-    iconLayoutPlacements.includes(placeSelf)
+    placeSelf && iconLayoutPlacements.includes(placeSelf)
       ? `icon-layout--place-self-${placeSelf}`
       : undefined,
-    iconLayoutVariants.includes(variant)
+    variant && iconLayoutVariants.includes(variant)
       ? `icon-layout--variant-${variant}`
       : undefined,
   ]
