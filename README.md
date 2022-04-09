@@ -9,32 +9,25 @@ Everything you need to manage icon-to-text layouts.
 [![CodeQL](https://github.com/michaelschwobe/react-icon-layout/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/michaelschwobe/react-icon-layout/actions/workflows/codeql-analysis.yml)
 [![codecov](https://codecov.io/gh/michaelschwobe/react-icon-layout/branch/master/graph/badge.svg?token=NN3EY45TXL&)](https://codecov.io/gh/michaelschwobe/react-icon-layout)
 
-## Use Case
+Jump to: [Overview](#overview) | [Installation](#installation) | [Usage](#usage) | [Features](#features) | [API](#api) | [License](#license)
+
+## Overview
 
 As a developer, you’d like to:
 
-- Create icon-to-text pairs (or other content types) multiple times, and possibly nest them.
-- Dynamically or statically control how some or all icon-to-text pairs display.
-- Use custom or default styles and variables.
+- 👯 Create icon-to-text pairs (or other content types) multiple times, and possibly nest them.
+- ⚡️ Dynamically or statically control how some or all icon-to-text pairs display.
+- ✍️ Use custom or default styles and variables.
 
 So that you can:
 
-- Ensure layout relationships are consistent and manageable.
-- Allow some or all users to control their own icon-to-text display settings. For example, you’ve likely seen this use case before within the macOS Finder:
+- 🤝 Ensure layout relationships are consistent and manageable.
+- ✨ Render whatever, wherever — form fields, navigation, pagination, etc.
+- 🛠 Allow some or all users to control their own icon-to-text display settings.
 
-<p>
-  <picture>
-    <source
-      srcset="https://github.com/michaelschwobe/react-icon-layout/raw/master/media/Finder-dark.png"
-      media="(prefers-color-scheme: dark)"
-    />
-    <img
-      src="https://github.com/michaelschwobe/react-icon-layout/raw/master/media/Finder-light.png"
-      alt="'macOS Finder with it’s header right-click menu visible'"
-      style="max-width: 100%;"
-    />
-  </picture>
-</p>
+For example, you’ve likely seen this use case before within the macOS Finder:
+
+![macOS Finder with it’s header right-click menu visible](./media/Finder.png)
 
 ## Installation
 
@@ -49,6 +42,10 @@ yarn add react-icon-layout
 ```
 
 ## Usage
+
+- ⬆️ View the “Finder” example (shown above) on [CodeSandbox](https://codesandbox.io/s/react-icon-layout-finder-example-dzedn)
+- 📚 View the Storybook example on [GitHub](https://github.com/michaelschwobe/react-icon-layout/blob/master/stories/react-icon-layout.stories.tsx) or clone locally then run the `dev` script.
+- ⬇️ View the “Basic” example (shown below) on [CodeSandbox](https://codesandbox.io/s/react-icon-layout-basic-example-urw6e)
 
 ```js
 import * as React from 'react';
@@ -113,10 +110,6 @@ function App() {
 const rootElement = document.getElementById('root');
 ReactDOM.render(<App />, rootElement);
 ```
-
-- View basic example (shown above) on [CodeSandbox](https://codesandbox.io/s/react-icon-layout-basic-example-urw6e)
-- View advanced “Finder” example on [CodeSandbox](https://codesandbox.io/s/react-icon-layout-finder-example-dzedn)
-- View Storybook examples on [GitHub](https://github.com/michaelschwobe/react-icon-layout/blob/master/stories/react-icon-layout.stories.tsx)
 
 ## Features
 
@@ -205,4 +198,4 @@ Hook for accessing `dispatch`, requires `<IconLayoutProvider>`.
 
 ## License
 
-[MIT](https://github.com/michaelschwobe/react-icon-layout/blob/master/LICENSE)
+[MIT](./LICENSE)
