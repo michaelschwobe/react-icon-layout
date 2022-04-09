@@ -5,8 +5,9 @@ Everything you need to manage icon-to-text layouts.
 [![NPM version](https://img.shields.io/npm/v/react-icon-layout.svg)](https://www.npmjs.com/package/react-icon-layout)
 [![License](https://img.shields.io/npm/l/react-icon-layout)](https://github.com/michaelschwobe/react-icon-layout/blob/master/LICENSE)
 [![NPM status](https://img.shields.io/github/workflow/status/michaelschwobe/react-icon-layout/CI)](https://www.npmjs.com/package/react-icon-layout)
+[![Publish](https://github.com/michaelschwobe/react-icon-layout/actions/workflows/publish.yml/badge.svg)](https://github.com/michaelschwobe/react-icon-layout/actions/workflows/publish.yml)
 [![CI](https://github.com/michaelschwobe/react-icon-layout/actions/workflows/ci.yml/badge.svg)](https://github.com/michaelschwobe/react-icon-layout/actions/workflows/ci.yml)
-[![CodeQL](https://github.com/michaelschwobe/react-icon-layout/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/michaelschwobe/react-icon-layout/actions/workflows/codeql-analysis.yml)
+[![CodeQL](https://github.com/michaelschwobe/react-icon-layout/actions/workflows/codeql.yml/badge.svg)](https://github.com/michaelschwobe/react-icon-layout/actions/workflows/codeql.yml)
 [![codecov](https://codecov.io/gh/michaelschwobe/react-icon-layout/branch/master/graph/badge.svg?token=NN3EY45TXL&)](https://codecov.io/gh/michaelschwobe/react-icon-layout)
 
 Jump to: [Overview](#overview) | [Installation](#installation) | [Usage](#usage) | [Features](#features) | [API](#api) | [License](#license)
@@ -44,7 +45,7 @@ yarn add react-icon-layout
 ## Usage
 
 - ⬆️ View the “Finder” example (shown above) on [CodeSandbox](https://codesandbox.io/s/react-icon-layout-finder-example-dzedn)
-- 📚 View the Storybook example on [GitHub](https://github.com/michaelschwobe/react-icon-layout/blob/master/stories/react-icon-layout.stories.tsx) or clone locally then run the `dev` script.
+- 📚 View the Storybook example on [GitHub](./stories/react-icon-layout.stories.tsx) or clone locally then run the `dev` script.
 - ⬇️ View the “Basic” example (shown below) on [CodeSandbox](https://codesandbox.io/s/react-icon-layout-basic-example-urw6e)
 
 ```js
