@@ -1,72 +1,87 @@
 import { render, screen } from '@testing-library/react';
 
-import { IconLayout } from '../src/index';
+import {
+  IconLayout,
+  iconLayoutPlacements,
+  iconLayoutVariants,
+} from '../src/index';
 import { getIconLayoutClassNames } from '../src/react-icon-layout.component';
 
 // -----------------------------------------------------------------------------
 
 describe('getIconLayoutClassNames', () => {
-  test('Contains the parent-provided class', () => {
-    const result = getIconLayoutClassNames({ className: 'example-className' });
-    expect(result).toContain('example-className');
-  });
-
   test('Contains the base class', () => {
-    const result = getIconLayoutClassNames({});
-    expect(result).toContain('icon-layout');
+    expect(getIconLayoutClassNames({})).toContain('icon-layout');
   });
 
-  test('Contains the DEFAULT `placeIcon` class', () => {
-    const result = getIconLayoutClassNames({});
-    expect(result).toContain('icon-layout--place-icon-center');
+  test('Contains the parent-provided class', () => {
+    expect(getIconLayoutClassNames({ className: 'parent' })).toContain(
+      'parent',
+    );
   });
 
-  test('Contains the DERIVED `placeIcon` class', () => {
-    const result = getIconLayoutClassNames({ placeIcon: 'top' });
-    expect(result).toContain('icon-layout--place-icon-top');
+  describe('placeIcon', () => {
+    test('Contains the derived `placeIcon` class when `placeIcon` is VALID and `variant` is "iconAndText"', () => {
+      for (const val of iconLayoutPlacements) {
+        expect(
+          getIconLayoutClassNames({ placeIcon: val, variant: 'iconAndText' }),
+        ).toContain(`icon-layout--place-icon-${val}`);
+      }
+    });
+
+    test('Does NOT contain ANY derived `placeIcon` class when `placeIcon` is VALID and `variant` is NOT the default', () => {
+      for (const val of iconLayoutPlacements) {
+        expect(
+          getIconLayoutClassNames({ placeIcon: val, variant: 'iconOnly' }),
+        ).not.toContain(/icon-layout--place-icon-/i);
+        expect(
+          getIconLayoutClassNames({ placeIcon: val, variant: 'textOnly' }),
+        ).not.toContain(/icon-layout--place-icon-/i);
+      }
+    });
+
+    test('Does NOT contain ANY derived `placeIcon` class when `placeIcon` is INVALID', () => {
+      for (const val of iconLayoutVariants) {
+        expect(
+          // @ts-expect-error -- bad prop
+          getIconLayoutClassNames({ placeIcon: 'bad', variant: val }),
+        ).not.toContain(/icon-layout--place-icon-/i);
+      }
+    });
   });
 
-  test('Does NOT contain ANY `placeIcon` class when `variant` is NOT the default', () => {
-    const result = getIconLayoutClassNames({ variant: 'iconOnly' });
-    expect(result).not.toContain(/icon-layout--place-icon-/i);
+  describe('placeSelf', () => {
+    test('Contains the derived `placeSelf` class when `placeSelf` is VALID', () => {
+      for (const val of iconLayoutPlacements) {
+        expect(getIconLayoutClassNames({ placeSelf: val })).toContain(
+          `icon-layout--place-self-${val}`,
+        );
+      }
+    });
+
+    test('Does NOT contain ANY derived `placeSelf` class when `placeSelf` is INVALID', () => {
+      expect(
+        // @ts-expect-error -- bad prop
+        getIconLayoutClassNames({ placeSelf: 'bad' }),
+      ).not.toContain(/icon-layout--place-self-/i);
+    });
   });
 
-  test('Does NOT contain ANY `placeIcon` class when an invalid value is provided', () => {
-    // @ts-expect-error bad prop passed
-    const result = getIconLayoutClassNames({ placeIcon: 'badValue' });
-    expect(result).not.toContain(/icon-layout--place-icon-/i);
-  });
+  describe('variant', () => {
+    test('Contains the derived `variant` class when `variant` is VALID', () => {
+      for (const val of iconLayoutVariants) {
+        expect(getIconLayoutClassNames({ variant: val })).toContain(
+          `icon-layout--variant-${val}`,
+        );
+      }
+    });
 
-  test('Contains the DEFAULT `placeSelf` class', () => {
-    const result = getIconLayoutClassNames({});
-    expect(result).toContain('icon-layout--place-self-center');
-  });
-
-  test('Contains the DERIVED `placeSelf` class', () => {
-    const result = getIconLayoutClassNames({ placeSelf: 'top' });
-    expect(result).toContain('icon-layout--place-self-top');
-  });
-
-  test('Does NOT contain ANY `placeSelf` class when an invalid value is provided', () => {
-    // @ts-expect-error bad prop passed
-    const result = getIconLayoutClassNames({ placeSelf: 'badValue' });
-    expect(result).not.toContain(/icon-layout--place-self-/i);
-  });
-
-  test('Contains the DEFAULT variant class', () => {
-    const result = getIconLayoutClassNames({});
-    expect(result).toContain('icon-layout--variant-iconAndText');
-  });
-
-  test('Contains the DERIVED variant class', () => {
-    const result = getIconLayoutClassNames({ variant: 'iconOnly' });
-    expect(result).toContain('icon-layout--variant-iconOnly');
-  });
-
-  test('Does NOT contain ANY variant class when an invalid value is provided', () => {
-    // @ts-expect-error bad prop passed
-    const result = getIconLayoutClassNames({ variant: 'badValue' });
-    expect(result).not.toContain(/icon-layout--variant-/i);
+    test('Does NOT contain ANY derived `variant` class when `variant` is INVALID', () => {
+      expect(
+        // @ts-expect-error -- bad prop
+        getIconLayoutClassNames({ variant: 'bad' }),
+      ).not.toContain(/icon-layout--variant-/i);
+    });
   });
 });
 

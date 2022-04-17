@@ -20,22 +20,24 @@ import type {
 /** Helper for combining `IconLayout` class names */
 export const getIconLayoutClassNames = ({
   className,
-  placeIcon = defaultPlaceIcon,
-  placeSelf = defaultPlaceSelf,
-  variant = defaultVariant,
+  placeIcon,
+  placeSelf,
+  variant,
 }: Partial<
   Pick<IconLayoutProps, 'className' | 'placeIcon' | 'placeSelf' | 'variant'>
 >) =>
   [
     className,
     'icon-layout',
-    iconLayoutPlacements.includes(placeIcon) && variant === 'iconAndText'
+    variant === 'iconAndText' &&
+    placeIcon &&
+    iconLayoutPlacements.includes(placeIcon)
       ? `icon-layout--place-icon-${placeIcon}`
       : undefined,
-    iconLayoutPlacements.includes(placeSelf)
+    placeSelf && iconLayoutPlacements.includes(placeSelf)
       ? `icon-layout--place-self-${placeSelf}`
       : undefined,
-    iconLayoutVariants.includes(variant)
+    variant && iconLayoutVariants.includes(variant)
       ? `icon-layout--variant-${variant}`
       : undefined,
   ]
@@ -56,11 +58,11 @@ export interface IconLayoutProps
   > {
   /** Sets the `class` attribute. **Default:** `undefined` */
   className?: string | undefined;
-  /** Styles the “icon” placement within the display component. **Default:** `'center'` */
+  /** Styles the “icon” placement within the display component. **Default:** `"left"` */
   placeIcon?: IconLayoutPlacement | undefined;
-  /** Styles the component placement within a larger parent. **Default:** `'center'` */
+  /** Styles the component placement within a larger parent. **Default:** `undefined` */
   placeSelf?: IconLayoutPlacement | undefined;
-  /** Styles the content visibility. **Default:** `'iconAndText'` */
+  /** Styles the content visibility. **Default:** `"iconAndText"` */
   variant?: IconLayoutState | undefined;
   /** Sets the “icon” content, similar to a `children` prop. **Required.** */
   icon: React.ReactNode;

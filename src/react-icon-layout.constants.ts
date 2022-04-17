@@ -16,10 +16,10 @@ export const iconLayoutPlacements = [
 ] as const;
 
 /** Default `placeIcon` prop value */
-export const defaultPlaceIcon = 'center';
+export const defaultPlaceIcon = 'left';
 
 /** Default `placeSelf` prop value */
-export const defaultPlaceSelf = 'center';
+export const defaultPlaceSelf = undefined;
 
 export type IconLayoutPlacement = typeof iconLayoutPlacements[number];
 
