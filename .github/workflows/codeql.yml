@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [$default-branch]
   schedule:
-    - cron: '15 14 * * 6'
+    - cron: '30 16 * * 2'
 
 jobs:
   analyze:
@@ -22,7 +22,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [$detected-codeql-languages]
+        language: ['typescript']
 
     steps:
       - name: Checkout repository
