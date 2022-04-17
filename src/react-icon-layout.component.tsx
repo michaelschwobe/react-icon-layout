@@ -58,11 +58,11 @@ export interface IconLayoutProps
   > {
   /** Sets the `class` attribute. **Default:** `undefined` */
   className?: string | undefined;
-  /** Styles the “icon” placement within the display component. **Default:** `'left'` */
+  /** Styles the “icon” placement within the display component. **Default:** `"left"` */
   placeIcon?: IconLayoutPlacement | undefined;
   /** Styles the component placement within a larger parent. **Default:** `undefined` */
   placeSelf?: IconLayoutPlacement | undefined;
-  /** Styles the content visibility. **Default:** `'iconAndText'` */
+  /** Styles the content visibility. **Default:** `"iconAndText"` */
   variant?: IconLayoutState | undefined;
   /** Sets the “icon” content, similar to a `children` prop. **Required.** */
   icon: React.ReactNode;
